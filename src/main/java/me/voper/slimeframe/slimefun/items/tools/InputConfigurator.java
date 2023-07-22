@@ -106,28 +106,6 @@ public class InputConfigurator extends SimpleSlimefunItem<ItemUseHandler> {
         ItemMeta itemMeta = item.getItemMeta();
         if (itemMeta == null) return;
 
-//        int[] inputSlots = input;
-//
-//        if (inputSlots == null || inputSlots.length == 0) {
-//            if (sfItem instanceof InventoryBlock) {
-//                inputSlots = ((InventoryBlock) sfItem).getInputSlots();
-//            } else {
-//                inputSlots = invokeGetInputSlots(sfItem);
-//            }
-//        }
-//
-//
-//        else if (sfItem instanceof InventoryBlock) {
-//            inputSlots = ((InventoryBlock) sfItem).getInputSlots();
-//        } else {
-//            inputSlots = invokeGetInputSlots(sfItem);
-//        }
-
-//        if (input.length == 0) {
-//            player.sendMessage(sfItem.getItemName() + ChatColor.RED + " has no input slots");
-//            return;
-//        }
-
         ItemStack[] itemStacks = new ItemStack[input.length];
 
         for (int i = 0; i < input.length; i++) {
@@ -145,19 +123,6 @@ public class InputConfigurator extends SimpleSlimefunItem<ItemUseHandler> {
     private void applyConfiguration(SlimefunItem sfItem, ItemStack item, BlockMenu menu, Player player, int[] input) {
         ItemMeta itemMeta = item.getItemMeta();
         if (itemMeta == null) return;
-
-//        int[] inputSlots;
-
-//        if (sfItem instanceof InventoryBlock) {
-//            inputSlots = ((InventoryBlock) sfItem).getInputSlots();
-//        } else {
-//            inputSlots = invokeGetInputSlots(sfItem);
-//        }
-//
-//        if (inputSlots.length == 0) {
-//            player.sendMessage(sfItem.getItemName() + ChatColor.RED + " has no input slots");
-//            return;
-//        }
 
         ItemStack[] itemsStored = itemMeta.getPersistentDataContainer().get(ITEMSTACK_ARRAY, DataType.ITEM_STACK_ARRAY);
         String machineID = PersistentDataAPI.get(itemMeta, MACHINE_ID, PersistentDataType.STRING);

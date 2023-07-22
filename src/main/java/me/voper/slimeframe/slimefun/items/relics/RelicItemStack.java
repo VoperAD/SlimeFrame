@@ -38,17 +38,17 @@ public class RelicItemStack extends SlimefunItemStack {
             lore.add(ChatColor.AQUA + "Reactants: " + ChatColor.WHITE + "0/10");
             lore.add(ChatColor.AQUA + "Refinement: " + ChatColor.WHITE + Relic.Refinement.INTACT.name());
             lore.add("");
-            lore.add(Colors.BRONZE + "" + ChatColor.BOLD + "Common rewards:");
+            lore.add(Colors.BRONZE + String.valueOf(ChatColor.BOLD) + "Common rewards:");
             for (SlimefunItemStack commonDrop: commonDrops) {
                 lore.add(ChatColor.WHITE + ChatColor.stripColor(commonDrop.getDisplayName()));
             }
             lore.add("");
-            lore.add(Colors.SILVER + "" + ChatColor.BOLD + "Uncommon rewards:");
+            lore.add(Colors.SILVER + String.valueOf(ChatColor.BOLD) + "Uncommon rewards:");
             for (SlimefunItemStack uncommonDrop: uncommonDrops) {
                 lore.add(ChatColor.WHITE + ChatColor.stripColor(uncommonDrop.getDisplayName()));
             }
             lore.add("");
-            lore.add(Colors.GOLD_2 + "" + ChatColor.BOLD + "Rare reward:");
+            lore.add(Colors.GOLD_2 + String.valueOf(ChatColor.BOLD) + "Rare reward:");
             lore.add(ChatColor.WHITE + ChatColor.stripColor(rareDrop.getDisplayName()));
             itemMeta.setLore(lore);
         }));

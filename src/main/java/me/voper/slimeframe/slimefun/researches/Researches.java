@@ -14,7 +14,6 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Arrays;
 import java.util.List;
 
 @ParametersAreNonnullByDefault
@@ -78,14 +77,6 @@ public final class Researches {
 
     private static void create(NamespacedKey key, int id, String name, int cost, List<SlimefunItem> items) {
         create(key, id, name, cost, items.toArray(new SlimefunItem[0]));
-    }
-
-    private static void createMasteryResearch(NamespacedKey key, int id, String name, int cost, int mastery, int masteryExpReward, ItemStack... items) {
-        new MasteryResearch(key, FIRST_RESEARCH_ID + id, name, cost, mastery, masteryExpReward).addItems(items).register();
-    }
-
-    private static void createMasteryResearch(NamespacedKey key, int id, String name, int cost, int mastery, int masteryExpReward, SlimefunItem... items) {
-        createMasteryResearch(key, id, name, cost, mastery, masteryExpReward, Arrays.stream(items).map(SlimefunItem::getItem).toArray(ItemStack[]::new));
     }
 
 }

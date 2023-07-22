@@ -34,41 +34,6 @@ public class Commands extends BaseCommand {
         help.showHelp();
     }
 
-//    @Subcommand("%info")
-//    @CommandPermission("slimeframe.anyone.info")
-//    @Description("Shows the mastery rank of a player. If no player is entered, it shows your own mastery rank.")
-//    public void info(CommandSender sender, @Optional OnlinePlayer player) {
-//
-//    }
-//
-//    @Subcommand("%top")
-//    @CommandPermission("slimeframe.anyone.top")
-//    @Description("Shows the list of players with the most mastery points.")
-//    public void top(CommandSender sender, @Optional int page) {
-//
-//    }
-//
-//    @Subcommand("%gpoints")
-//    @CommandPermission("slimeframe.admin.givepoints")
-//    @Description("Gives mastery points to a player.")
-//    public void giveMasteryPoints(CommandSender sender, OnlinePlayer player, int points) {
-//
-//    }
-//
-//    @Subcommand("%rmpoints")
-//    @CommandPermission("slimeframe.admin.removepoints")
-//    @Description("Removes a quantity of a player's mastery points")
-//    public void removeMasteryPoints(CommandSender sender, OnlinePlayer player, int points) {
-//
-//    }
-//
-//    @Subcommand("%rspoints")
-//    @CommandPermission("slimeframe.admin.resetpoints")
-//    @Description("Resets a player's mastery points to zero.")
-//    public void resetMasteryPoints(CommandSender sender, OnlinePlayer player) {
-//
-//    }
-
     @Subcommand("%inventory")
     @CommandPermission("slimeframe.anyone.inventory")
     @Description("Show your relic inventory")

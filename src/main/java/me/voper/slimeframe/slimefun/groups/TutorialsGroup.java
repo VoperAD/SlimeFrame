@@ -38,7 +38,7 @@ public class TutorialsGroup extends FlexItemGroup {
             45, 46, 47, 48, 49, 50, 51, 52, 53
     };
 
-    private boolean visibility = true;
+    private final boolean visibility = true;
 
     protected TutorialsGroup(NamespacedKey key, ItemStack item) {
         super(key, item);

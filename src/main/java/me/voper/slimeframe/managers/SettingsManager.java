@@ -11,7 +11,7 @@ import java.util.List;
 public final class SettingsManager {
 
     private final SlimeFrame plugin;
-    private FileConfiguration config;
+    private final FileConfiguration config;
 
     public SettingsManager(@Nonnull SlimeFrame plugin) {
         this.plugin = plugin;
@@ -51,11 +51,6 @@ public final class SettingsManager {
         AXI_RELIC("relics.axi", 1000),
 
         SLIMEFRAME_CMD("commands.slimeframe"),
-        INFO_CMD("commands.info"),
-        TOP_CMD("commands.top"),
-        GIVEPOINTS_CMD("commands.givepoints"),
-        REMOVEPOINTS_CMD("commands.removepoints"),
-        RESETPOINTS_CMD("commands.resetpoints"),
         INVENTORY_CMD("commands.inventory"),
         INVSEE_CMD("commands.invsee"),
         REFINE_CMD("commands.refine"),
@@ -63,7 +58,6 @@ public final class SettingsManager {
 
         PREFIX("messages.prefix", "&f[&bSlimeFrame&f]"),
         PREFIX_ENABLED("messages.prefix-enabled", false),
-        NO_MASTERY_LEVEL("messages.no-mastery-level"),
         INSUFFICIENT_REACTANTS("messages.insufficient-reactants"),
         FREEZING_ITEM("messages.freezing-item");
 

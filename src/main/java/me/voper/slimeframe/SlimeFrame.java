@@ -2,7 +2,6 @@ package me.voper.slimeframe;
 
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import me.voper.slimeframe.data.gson.WarframeDataManager;
 import me.voper.slimeframe.listeners.*;
 import me.voper.slimeframe.managers.CommandsManager;
 import me.voper.slimeframe.managers.RelicInventoryManager;
@@ -29,7 +28,6 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
 
     private static SlimeFrame instance;
 
-    private WarframeDataManager warframeDataManager;
     private SettingsManager settingsManager;
     private RelicInventoryManager relicInventoryManager;
     private CommandsManager commandsManager;
@@ -54,12 +52,10 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
         }
 
         this.settingsManager = new SettingsManager(this);
-        this.warframeDataManager = new WarframeDataManager(this);
         this.relicInventoryManager = new RelicInventoryManager(this);
         this.commandsManager = new CommandsManager(this);
 
         this.relicInventoryManager.setup();
-        this.warframeDataManager.setup();
         this.commandsManager.setup();
 
         new SFrameItems(this).setup();
@@ -74,13 +70,10 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onDisable() {
         relicInventoryManager.saveConfig();
-        warframeDataManager.save();
         Bukkit.getScheduler().cancelTasks(this);
     }
 
     private void logStart() {
-//        getLogger().info("==========================================================");
-        getLogger().info("");
         getLogger().info("   _____ _ _                ______                        ");
         getLogger().info("  / ____| (_)              |  ____|                       ");
         getLogger().info(" | (___ | |_ _ __ ___   ___| |__ _ __ __ _ _ __ ___   ___ ");
@@ -88,11 +81,6 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
         getLogger().info("  ____) | | | | | | | |  __/ |  | | | (_| | | | | | |  __/");
         getLogger().info(" |_____/|_|_|_| |_| |_|\\___|_|  |_|  \\__,_|_| |_| |_|\\___|");
         getLogger().info("==========================================================");
-
-//        getLogger().info("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=");
-//        getLogger().info("=                SlimeFrame                 =");
-//        getLogger().info("=                 by Voper                  =");
-//        getLogger().info("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=");
     }
 
     @Override
@@ -107,9 +95,7 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
     }
 
     private void setupEvents() {
-        new MasteryPointsListener(this);
         new BlockPlaceListener(this);
-        new PlayerJoinListener(this);
         new RelicsListener(this);
         new RelicInventoryListener(this);
         new CoolantRaknoidsListener(this);
@@ -124,10 +110,6 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
 
     public static SlimeFrame getInstance() {
         return instance;
-    }
-
-    public static WarframeDataManager getWarframeDataManager() {
-        return instance.warframeDataManager;
     }
 
     public static SettingsManager getSettingsManager() {

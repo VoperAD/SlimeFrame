@@ -19,8 +19,8 @@ import java.util.regex.Pattern;
 public final class ChatUtils {
 
     public static boolean HEX_COLOR_SUPPORT;
-    public static String PREFIX = SlimeFrame.getSettingsManager().getString(SettingsManager.ConfigField.PREFIX);
-    public static boolean PREFIX_ENABLED = SlimeFrame.getSettingsManager().getBoolean(SettingsManager.ConfigField.PREFIX_ENABLED);
+    public static final String PREFIX = SlimeFrame.getSettingsManager().getString(SettingsManager.ConfigField.PREFIX);
+    public static final boolean PREFIX_ENABLED = SlimeFrame.getSettingsManager().getBoolean(SettingsManager.ConfigField.PREFIX_ENABLED);
     private static final Pattern HEX_COLOR_PATTERN = Pattern.compile("&#([0-9A-Fa-f]{6})");
 
     public static String getColorByChar(char character) {

@@ -104,7 +104,7 @@ public class Relic extends SlimefunItem implements NotPlaceable {
 
             EnumeratedDistribution<SlimefunItemStack> dropDistribution = getDropDistribution(relic);
 
-            int voidTraces = PersistentDataAPI.getInt(p, Keys.VOID_TRACES_OWNED, 0);;
+            int voidTraces = PersistentDataAPI.getInt(p, Keys.VOID_TRACES_OWNED, 0);
             int voidTracesReward = ThreadLocalRandom.current().nextInt(20) + 1;
             voidTraces += voidTracesReward;
 

@@ -108,14 +108,6 @@ public class MobDropItem extends SlimefunItem implements AdvancedMobDrop, Recipe
                         recipes.add(spawnEgg);
                     }
                 });
-//        mobChanceMap.forEach((entityType, integer) -> {
-//            recipes.add(new CustomItemStack(Material.PAPER, ChatColor.WHITE + "Drop chance: " + ChatColor.AQUA + integer + "%"));
-//            Material material = Material.getMaterial(entityType.name() + "_SPAWN_EGG");
-//            if (material != null) {
-//                CustomItemStack spawnEgg = new CustomItemStack(material, Utils.formatMaterialString(material).replaceAll("Spawn Egg", " ").trim());
-//                recipes.add(spawnEgg);
-//            }
-//        });
 
         return recipes;
     }

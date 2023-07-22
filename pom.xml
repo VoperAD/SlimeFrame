@@ -37,11 +37,6 @@
         </repository>
 
         <repository>
-            <id>placeholderapi</id>
-            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
-        </repository>
-
-        <repository>
             <id>jeff-media-public</id>
             <url>https://hub.jeff-media.com/nexus/repository/jeff-media-public/</url>
         </repository>
@@ -173,12 +168,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.10</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>
             <version>3.6.1</version>
@@ -189,13 +178,6 @@
             <artifactId>annotations</artifactId>
             <version>23.0.0</version>
             <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>me.clip</groupId>
-            <artifactId>placeholderapi</artifactId>
-            <version>2.11.2</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>

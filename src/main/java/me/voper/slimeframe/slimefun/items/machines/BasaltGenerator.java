@@ -63,12 +63,6 @@ public class BasaltGenerator extends AbstractMachine {
         preset.addItem(getStatusSlot(), MachineUtils.STATUS, ChestMenuUtils.getEmptyClickHandler());
     }
 
-//    public BasaltGenerator setProcessingSpeed(int speed) {
-//        Validate.isTrue(speed > 0, "Speed must be positive");
-//        this.processingSpeed = speed;
-//        return this;
-//    }
-
     public BasaltGenerator setProduction(int production) {
         Validate.isTrue(production > 0, "Production must be positive");
         this.production = production;

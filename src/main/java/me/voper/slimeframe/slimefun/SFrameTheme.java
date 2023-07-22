@@ -65,14 +65,6 @@ public class SFrameTheme {
     @Nonnull
     @Contract("_, _, _, _, _ -> new")
     public static SlimefunItemStack sfStackFromTheme(String id, Material material, SFrameTheme theme, String name, String... lore) {
-//        List<String> coloredLore = new ArrayList<>();
-//        for (String s : lore) {
-//            coloredLore.add(theme.loreColor + s);
-//        }
-//        coloredLore.add(0, " ");
-//        if (!theme.lastLine.equals(" ")) coloredLore.add(" ");
-//        coloredLore.add(theme.lastLine);
-//        return new SlimefunItemStack(id, material, theme.nameColor + name, coloredLore.toArray(new String[0]));
         return sfStackFromTheme(id, new ItemStack(material), theme, name, lore);
     }
 }

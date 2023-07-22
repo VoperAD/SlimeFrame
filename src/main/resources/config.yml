@@ -33,7 +33,6 @@ commands:
   traces:
     - 'traces'
 
-
 messages:
   prefix: '&f[&bSlimeFrame&f]'
   prefix-enabled: false
