@@ -50,4 +50,10 @@ public class TreePeeler extends AbstractProcessorMachine implements RecipeDispla
                 .flatMap(entry -> Stream.of(entry.getKey().parseItem(), entry.getValue().parseItem()))
                 .toList();
     }
+
+    static {
+        STRIPPED_WOODS_LOGS.put(XMaterial.CRIMSON_STEM, XMaterial.STRIPPED_CRIMSON_STEM);
+        STRIPPED_WOODS_LOGS.put(XMaterial.WARPED_STEM, XMaterial.STRIPPED_WARPED_STEM);
+    }
+
 }
