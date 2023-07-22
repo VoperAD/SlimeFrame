@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import java.util.HashMap;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Getter
@@ -20,15 +21,19 @@ public class RelicInventory {
 
     public static final int SIZE = 54;
     private final Inventory inventory;
-    private final Player owner;
+    private final UUID owner;
 
     public RelicInventory(@Nonnull Player owner) {
-        this.owner = owner;
+        this.owner = owner.getUniqueId();
         this.inventory = Bukkit.createInventory(owner, SIZE, ChatColor.WHITE + owner.getName() + "'s Relics Inventory");
     }
 
     public void addRelic(@Nonnull RelicItemStack relic) {
         HashMap<Integer, ItemStack> result = inventory.addItem(relic);
+
+        Player player = Bukkit.getPlayer(owner);
+        if (player == null) return;
+
         if (result.isEmpty()) {
             BaseComponent[] baseComponents = new ComponentBuilder("You have just received a ").color(ChatColor.GREEN)
                     .append(relic.getDisplayName())
@@ -39,9 +44,9 @@ public class RelicInventory {
             message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/sframe inventory"));
             message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(new ComponentBuilder("Open Relic Inventory").create())));
 
-            ChatUtils.sendMessage(owner, message);
+            ChatUtils.sendMessage(player, message);
         } else {
-            ChatUtils.sendMessage(owner, ChatColor.RED + "You couldn't receive a relic because your relic inventory is full");
+            ChatUtils.sendMessage(player, ChatColor.RED + "You couldn't receive a relic because your relic inventory is full");
         }
     }
 
@@ -63,7 +68,10 @@ public class RelicInventory {
     }
 
     public void open() {
-        owner.openInventory(inventory);
+        Player player = Bukkit.getPlayer(owner);
+        if (player != null) {
+            player.openInventory(inventory);
+        }
     }
 
 }

@@ -34,7 +34,7 @@ import java.util.*;
 @ParametersAreNonnullByDefault
 public class ChunkEater extends AbstractMachine {
 
-    private static final int TIME = Utils.secondsToSfTicks(5);
+    private static final int TIME = Utils.secondsToSfTicks(1);
 
     private static final Map<BlockPosition, Integer> PROGRESS_MAP = new HashMap<>();
     private static final Map<BlockPosition, Player> OWNERS_MAP = new HashMap<>();
