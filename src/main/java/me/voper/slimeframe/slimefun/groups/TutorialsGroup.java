@@ -80,14 +80,14 @@ public class TutorialsGroup extends FlexItemGroup {
         });
 
         // Relics Tutorial
-        menu.replaceExistingItem(RELICS_TUTORIAL, new CustomItemStack(Material.ENCHANTED_BOOK, Colors.BRONZE + "Tutorial das Relíquias"));
+        menu.replaceExistingItem(RELICS_TUTORIAL, new CustomItemStack(Material.ENCHANTED_BOOK, Colors.BRONZE + "Relics Tutorial"));
         menu.addMenuClickHandler(RELICS_TUTORIAL, ((player1, i, itemStack, clickAction) -> {
             player1.getInventory().addItem(getRelicsTutorial());
             return false;
         }));
 
         // Generators Tutorial
-        menu.replaceExistingItem(GENERATORS_TUTORIAL, new CustomItemStack(Material.ENCHANTED_BOOK, Colors.BRONZE + "Tutorial dos Geradores"));
+        menu.replaceExistingItem(GENERATORS_TUTORIAL, new CustomItemStack(Material.ENCHANTED_BOOK, Colors.BRONZE + "Energy Generators Tutorial"));
         menu.addMenuClickHandler(GENERATORS_TUTORIAL, ((player1, i, itemStack, clickAction) -> {
             player1.getInventory().addItem(getGeneratorsTutorial());
             return false;
@@ -95,7 +95,7 @@ public class TutorialsGroup extends FlexItemGroup {
         menu.open(player);
 
         // Special Ores Farm
-        menu.replaceExistingItem(SPECIAL_ORES_TUTORIAL, new CustomItemStack(Material.ENCHANTED_BOOK, Colors.BRONZE + "Farm dos novos minérios"));
+        menu.replaceExistingItem(SPECIAL_ORES_TUTORIAL, new CustomItemStack(Material.ENCHANTED_BOOK, Colors.BRONZE + "New Resources Farm Tutorial"));
         menu.addMenuClickHandler(SPECIAL_ORES_TUTORIAL, ((player1, i, itemStack, clickAction) -> {
             player1.getInventory().addItem(getSpecialOresTutorial());
             return false;
@@ -108,35 +108,35 @@ public class TutorialsGroup extends FlexItemGroup {
         ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
         BookMeta itemMeta = (BookMeta) book.getItemMeta();
         itemMeta.setAuthor("Voper");
-        itemMeta.setTitle(ChatColor.BLUE + "Tutorial das Relíquias");
+        itemMeta.setTitle(ChatColor.BLUE + "Relics Tutorial");
 
         ArrayList<BaseComponent[]> components = new ArrayList<>();
-        components.add(new ComponentBuilder("Para que servem as relíquias?\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Servem para conseguir componentes Prime para fazer máquinas de tier Prime. Cada relíquia tem 3 recompensas Bronze, 2 recompensas Prata e 1 recompensa Dourada.").underlined(false).color(ChatColor.BLACK)
+        components.add(new ComponentBuilder("What are Relics for?\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("Relics are used to obtain Prime components for crafting Prime-tier machines. Each relic has 3 Bronze rewards, 2 Silver rewards, and 1 Gold reward.").underlined(false).color(ChatColor.BLACK)
                 .create());
 
-        components.add(new ComponentBuilder("Como conseguir relíquias?\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Você pode conferir na aba de relíquias, mas basicamente existem quatro tipos de relíquias: Lith, Meso, Neo e Axi. A Lith se consegue pescando, a Meso matando mobs, a Neo quebrando blocos e a Axi colocando blocos.").underlined(false).color(ChatColor.BLACK)
+        components.add(new ComponentBuilder("How to obtain Relics?\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("You can check the Relics tab, but basically, there are four types of Relics: Lith, Meso, Neo, and Axi. You get Lith by fishing, Meso by killing mobs, Neo by breaking blocks, and Axi by placing blocks.").underlined(false).color(ChatColor.BLACK)
                 .create());
 
-        components.add(new ComponentBuilder("Como abrir relíquias?\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Coloque UMA relíquia na sua mão esquerda e mate endermans até que o número de reactants da sua relíquia seja 10. Após isso, apenas clique com o botão direito com a relíquia na mão e você receberá sua recompensa.").underlined(false).color(ChatColor.BLACK)
+        components.add(new ComponentBuilder("How to open Relics?\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("Hold ONE Relic in your off hand and kill endermans until your Relic's reactant count reaches 10. After that, right-click with the Relic in hand to receive your reward.").underlined(false).color(ChatColor.BLACK)
                 .create());
 
-        components.add(new ComponentBuilder("Jogadores Bedrock\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Caso você seja um jogador bredrock, a relíquia deve estar no primeiro slot da sua hotbar para conseguir os reactants.").underlined(false).color(ChatColor.BLACK)
+        components.add(new ComponentBuilder("Bedrock Players\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("If you are a Bedrock player, the Relic must be in the first slot of your hotbar to obtain the reactants.").underlined(false).color(ChatColor.BLACK)
                 .create());
 
-        components.add(new ComponentBuilder("Traços do Void\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Os traços do void são usados para refinar relíquias e aumentar suas chances de conseguir itens mais raros. Você ganha traços cada vez que abre uma relíquia. Para ver sua quantidade de traços use /sframe traces.").underlined(false).color(ChatColor.BLACK)
+        components.add(new ComponentBuilder("Void Traces\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("Void Traces are used to refine Relics and increase chances of obtaining rarer items. You earn traces each time you open a Relic. To check your trace count, use /sframe traces.").underlined(false).color(ChatColor.BLACK)
                 .create());
 
-        components.add(new ComponentBuilder("Como refinar relíquias?\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Para refinar uma relíquia use o comando /sframe refine <refinamento>. A chance de conseguir itens raros aumenta dependendo do refinamento.").underlined(false).color(ChatColor.BLACK)
+        components.add(new ComponentBuilder("How to refine Relics?\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("To refine a Relic, use the command /sframe refine <refinement>. The chance of obtaining rarer items increases depending on the refinement level.").underlined(false).color(ChatColor.BLACK)
                 .create());
 
-        components.add(new ComponentBuilder("Refinamentos\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("EXCEPTIONAL - requere 25 traços do void\n\nFLAWLESS - requere 50 traços do void\n\nRADIANT - requere 100 traços do void").underlined(false).color(ChatColor.BLACK)
+        components.add(new ComponentBuilder("Refinements\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("EXCEPTIONAL - requires 25 Void Traces\n\nFLAWLESS - requires 50 Void Traces\n\nRADIANT - requires 100 Void Traces").underlined(false).color(ChatColor.BLACK)
                 .create());
 
         itemMeta.spigot().setPages(components);
@@ -149,21 +149,21 @@ public class TutorialsGroup extends FlexItemGroup {
         ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
         BookMeta itemMeta = (BookMeta) book.getItemMeta();
         itemMeta.setAuthor("Voper");
-        itemMeta.setTitle(ChatColor.BLUE + "Tutorial dos Geradores");
+        itemMeta.setTitle(ChatColor.BLUE + "Energy Generators Tutorial");
 
         ArrayList<BaseComponent[]> components = new ArrayList<>();
-        components.add(new ComponentBuilder("Geradores acumulativos\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Alguns dos geradores de energia do SlimeFrame possuem um atributo a mais: ").color(ChatColor.BLACK).color(ChatColor.BLACK).underlined(false)
+        components.add(new ComponentBuilder("Cumulative Generators\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("Some of SlimeFrame's energy generators have an additional attribute: ").color(ChatColor.BLACK).underlined(false)
                 .append("Bonus Energy.").bold(true)
                 .create());
 
         components.add(new ComponentBuilder("Bonus Energy\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("O gerador irá checar se os blocos que estão ao seu lado, o de cima e o de baixo são também geradores acumulativos.").color(ChatColor.BLACK).underlined(false)
-                .append("Para cada gerador acumulativo encontrado, a energia bônus será somada a energia total gerada.")
+                .append("The generator will check if the blocks around, above, and below it are also cumulative generators. ").color(ChatColor.BLACK).underlined(false)
+                .append("For each cumulative generator found, the bonus energy will be added to the total generated energy.")
                 .create());
 
-        components.add(new ComponentBuilder("Exemplo\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Se um gerador tem 1000J de energia bônus e 2000J de energia padrão, se todos os blocos ao seu redor forem também geradores acumulativos, a energia total gerada será de 8000J (6 * 1000J + 2000J)").color(ChatColor.BLACK).underlined(false)
+        components.add(new ComponentBuilder("Example\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("If a generator has 1000J of bonus energy and 2000J of standard energy, and all the blocks around it are cumulative generators, the total generated energy will be 8000J (6 * 1000J + 2000J).").color(ChatColor.BLACK).underlined(false)
                 .create());
 
         itemMeta.spigot().setPages(components);
@@ -176,42 +176,42 @@ public class TutorialsGroup extends FlexItemGroup {
         ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
         BookMeta itemMeta = (BookMeta) book.getItemMeta();
         itemMeta.setAuthor("Voper");
-        itemMeta.setTitle(ChatColor.BLUE + "Farm dos novos minérios");
+        itemMeta.setTitle(ChatColor.BLUE + "New Resources Farm Tutorial");
 
         ArrayList<BaseComponent[]> components = new ArrayList<>();
-        components.add(new ComponentBuilder("Novos Minérios\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Na aba de recursos podem ser encontrados novos \"minérios\", os quais são obtidos usando as novas picaretas (Nosam Pickaxe). ").color(ChatColor.BLACK).underlined(false)
-                .append("Atualmente existe uma única maneira de criar uma farm desses recursos.")
+        components.add(new ComponentBuilder("New Ores\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("In the resources tab, you can find new \"ores\" obtained using the new pickaxe (Nosam Pickaxe). ").color(ChatColor.BLACK).underlined(false)
+                .append("Currently, there's only one way to create a farm for these resources.")
                 .create());
 
-        components.add(new ComponentBuilder("A Auto Trader\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Para fazer uma farm desses novos minérios você precisará construir uma nova máquina: a ").color(ChatColor.BLACK).underlined(false)
+        components.add(new ComponentBuilder("The Auto Trader\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("To create a farm for these new ores, you'll need to build a new machine: the ").color(ChatColor.BLACK).underlined(false)
                 .append("Auto Trader").bold(true)
-                .append(". Essa máquina é capaz de trocar automaticamente com villagers.").bold(false)
+                .append(". This machine can automatically trade with villagers.").bold(false)
                 .create());
 
-        components.add(new ComponentBuilder("Os Contratos\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Para que a Auto Trader funcione, você precisará colocar um contrato válido dentro dela. ").color(ChatColor.BLACK).underlined(false)
-                .append("Esses contratos são conseguidos a partir do ")
+        components.add(new ComponentBuilder("The Contracts\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("For the Auto Trader to work, you'll need to put a valid contract inside it. ").color(ChatColor.BLACK).underlined(false)
+                .append("These contracts can be obtained from the ")
                 .append("Merchant Soul Contract.").bold(true)
                 .create());
 
-        components.add(new ComponentBuilder("Trocando com Villagers\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Quando você conseguir os itens anteriores, terá que ").color(ChatColor.BLACK).underlined(false)
-                .append("conseguir um villager que dê um dos recursos novos do addon. ")
-                .append("A chance é baixa e a profissão do villager não importa, pode ser qualquer uma.")
+        components.add(new ComponentBuilder("Trading with Villagers\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("Once you have the previous items, you'll need to ").color(ChatColor.BLACK).underlined(false)
+                .append("find a villager offering one of the new addon resources. ")
+                .append("The chance is low, and the villager's profession doesn't matter; it can be any.")
                 .create());
 
-        components.add(new ComponentBuilder("Último Passo\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
-                .append("Quando você conseguir um villager que ofereça a troca necessária, ").color(ChatColor.BLACK).underlined(false)
-                .append("clique nele com o Merchant Contract na mão, usando o botão direito. ")
-                .append("Atenção: ").color(ChatColor.DARK_RED)
-                .append("isso irá matá-lo!").color(ChatColor.BLACK)
+        components.add(new ComponentBuilder("Final Step\n\n").color(Colors.CRAYOLA_BLUE).underlined(true)
+                .append("When you find a villager offering the required trade, ").color(ChatColor.BLACK).underlined(false)
+                .append("right-click on them with the Merchant Contract in hand. ")
+                .append("Attention: ").color(ChatColor.DARK_RED)
+                .append("this will kill them!").color(ChatColor.BLACK)
                 .create());
 
-        components.add(new ComponentBuilder("Com o contrato válido e a Auto Trader em mãos, basta inseri-lo")
-                .append("na máquina e selecionar a troca dentro dela. Após isso é só abastecer a máquina")
-                .append("com os recursos necessários!")
+        components.add(new ComponentBuilder("With the valid contract and the Auto Trader in hand, simply insert it into ")
+                .append("the machine and select the trade inside. After that, just supply the machine ")
+                .append("with the necessary resources!")
                 .create());
 
         itemMeta.spigot().setPages(components);
