@@ -1,0 +1,10 @@
+/bin/
+/.settings/
+/target/
+/.idea/
+/out/
+*.iml
+.project
+.classpath
+dependency-reduced-pom.xml
+.DS_Store

@@ -1,0 +1,47 @@
+name: SlimeFrame
+author: Voper
+description: A Warframe based Slimefun addon
+main: me.voper.slimeframe.SlimeFrame
+website: https://github.com/VoperYT/SlimeFrame
+version: ${project.version}
+api-version: 1.14
+depend:
+- Slimefun
+softdepend:
+  - PlaceholderAPI
+  - SlimeHUD
+  - Geyser-Spigot
+permissions:
+#  slimeframe.anyone.info:
+#    description: Can see how many mastery points a player has
+#  slimeframe.anyone.top:
+#    description: Can see the list of the players with the most mastery points
+
+#  slimeframe.admin.givepoints:
+#    description: Can give mastery points to a player
+#  slimeframe.admin.removepoints:
+#    description: Can remove a player's mastery points
+  slimeframe.anyone.refine:
+    description: Can refine a SlimeFrame relic
+  slimeframe.anyone.traces:
+    description: Can see the amount of traces a player has
+  slimeframe.anyone.inventory:
+    description: Can see your own relic inventory
+  slimeframe.admin.invsee:
+    description: Can see another player's relic inventory
+  slimeframe.admin.*:
+    description: Permissions for admins
+    default: op
+    children:
+#      slimeframe.admin.givepoints: true
+#      slimeframe.admin.removepoints: true
+      slimeframe.admin.invsee: true
+  slimeframe.anyone.*:
+    description: Permissions for anyone
+    default: not op
+    children:
+#      slimeframe.anyone.info: true
+#      slimeframe.anyone.top: true
+      slimeframe.anyone.refine: true
+      slimeframe.anyone.traces: true
+      slimeframe.anyone.inventory: true
