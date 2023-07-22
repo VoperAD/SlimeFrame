@@ -33,6 +33,9 @@ public class CoolantRaknoidsListener implements Listener {
             new PotionEffect(PotionEffectType.FIRE_RESISTANCE, Integer.MAX_VALUE, 5)
     );
 
+    private static final String NATURAL = "natural";
+    private static final String NOT_NATURAL = "not-natural";
+
     public CoolantRaknoidsListener(@Nonnull SlimeFrame plugin) {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
@@ -41,12 +44,15 @@ public class CoolantRaknoidsListener implements Listener {
     public void onCaveSpiderSpawn(@Nonnull CreatureSpawnEvent e) {
         if (!(e.getEntity() instanceof CaveSpider caveSpider)) return;
 
+        final String data = e.getSpawnReason() == CreatureSpawnEvent.SpawnReason.NATURAL ? NATURAL : NOT_NATURAL;
 
+        int random = ThreadLocalRandom.current().nextInt(100) + 1;
+        if (data.equals(NATURAL)) {
+            if (random < 45) addRaknoid(caveSpider, data);
+        } else {
+            if (random < 15) addRaknoid(caveSpider, data);
+        }
 
-        final String data = e.getSpawnReason() == CreatureSpawnEvent.SpawnReason.NATURAL ? "natural" : "raknoid";
-        PersistentDataAPI.setString(caveSpider, Keys.RAKNOID, data);
-        CoolantRaknoidsTask.RAKNOIDS_UUIDS.add(caveSpider.getUniqueId());
-        caveSpider.addPotionEffects(RAKNOIDS_POTIONS);
     }
 
     @EventHandler
@@ -83,10 +89,16 @@ public class CoolantRaknoidsListener implements Listener {
     public void onRaknoidDeath(@Nonnull EntityDeathEvent e) {
         if (!(e.getEntity() instanceof CaveSpider caveSpider)) return;
         if (!PersistentDataAPI.hasString(caveSpider, Keys.RAKNOID)) return;
-        final int amount = PersistentDataAPI.getString(caveSpider, Keys.RAKNOID).equals("natural") ?
+        final int amount = PersistentDataAPI.getString(caveSpider, Keys.RAKNOID).equals(NATURAL) ?
                 ThreadLocalRandom.current().nextInt(7) :
                 ThreadLocalRandom.current().nextInt(3);
         e.getDrops().add(new SlimefunItemStack(SFrameStacks.COOLANT_CANISTER, amount));
+    }
+
+    private void addRaknoid(CaveSpider caveSpider, String data) {
+        PersistentDataAPI.setString(caveSpider, Keys.RAKNOID, data);
+        CoolantRaknoidsTask.RAKNOIDS_UUIDS.add(caveSpider.getUniqueId());
+        caveSpider.addPotionEffects(RAKNOIDS_POTIONS);
     }
 
 }
