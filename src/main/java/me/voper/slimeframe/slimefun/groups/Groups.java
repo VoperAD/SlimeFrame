@@ -27,7 +27,7 @@ public class Groups {
 
     public static final TutorialsGroup TUTORIALS = new TutorialsGroup(
             Keys.createKey("wf_tutorials"),
-            new CustomItemStack(Material.ENCHANTED_BOOK, Colors.CRAYOLA_BLUE + "Tutoriais")
+            new CustomItemStack(Material.ENCHANTED_BOOK, Colors.CRAYOLA_BLUE + "Tutorials")
     );
 
     public static final MasterGroup RELICS = new MasterGroup(
