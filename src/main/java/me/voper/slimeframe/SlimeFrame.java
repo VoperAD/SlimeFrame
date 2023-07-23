@@ -12,6 +12,7 @@ import me.voper.slimeframe.slimefun.datatypes.MerchantRecipeListDataType;
 import me.voper.slimeframe.slimefun.researches.Researches;
 import me.voper.slimeframe.tasks.ArmorMonitorTask;
 import me.voper.slimeframe.tasks.CoolantRaknoidsTask;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
@@ -44,6 +45,8 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
         instance = this;
+
+        new Metrics(this, 19212);
 
         this.supportedPluginManager = new SupportedPluginManager();
 
