@@ -13,9 +13,9 @@ relics:
   # One meso relic every X mobs killed
   meso: 750
   # One neo relic every X blocks broken
-  neo: 1000
+  neo: 10000
   # One axi relic every X blocks placed
-  axi: 500
+  axi: 750
 
 commands:
   slimeframe:
