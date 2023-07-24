@@ -85,7 +85,7 @@ public final class SFrameItems {
                 new SlimefunItemStack(SFrameStacks.ADRAMALIUM, 2), new SlimefunItemStack(SFrameStacks.TRAVORIDE, 2), SFrameStacks.PLASTIDS, SFrameStacks.NEURODES});
         registerAlloy(SFrameStacks.TRAVOCYTE_ALLOY, new ItemStack[]{
                 new SlimefunItemStack(SFrameStacks.TRAVORIDE, 2), SFrameStacks.PLASTIDS, new SlimefunItemStack(SFrameStacks.SALVAGE, 16)});
-        registerAlloy(SFrameStacks.FEERSTEEL_ALLOY, new ItemStack[]{
+        registerAlloy(SFrameStacks.FERSTEEL_ALLOY, new ItemStack[]{
                 new SlimefunItemStack(SFrameStacks.FERROS, 2), SFrameStacks.RUBEDO, SFrameStacks.PLASTIDS});
         registerAlloy(SFrameStacks.VENERDO_ALLOY, new ItemStack[]{
                 new SlimefunItemStack(SFrameStacks.VENEROL, 2), SFrameStacks.RUBEDO, SFrameStacks.GALLIUM});
@@ -138,9 +138,9 @@ public final class SFrameItems {
         }).register(plugin);
 
         new Resource(SFrameStacks.CONTROL_MODULE, new ItemStack[]{
-                SFrameStacks.FEERSTEEL_ALLOY, SFrameStacks.TRAVOCYTE_ALLOY, SFrameStacks.FEERSTEEL_ALLOY,
+                SFrameStacks.FERSTEEL_ALLOY, SFrameStacks.TRAVOCYTE_ALLOY, SFrameStacks.FERSTEEL_ALLOY,
                 SFrameStacks.CUBIC_DIODES, SlimefunItems.PROGRAMMABLE_ANDROID, SFrameStacks.CUBIC_DIODES,
-                SFrameStacks.FEERSTEEL_ALLOY, SFrameStacks.TRAVOCYTE_ALLOY, SFrameStacks.FEERSTEEL_ALLOY
+                SFrameStacks.FERSTEEL_ALLOY, SFrameStacks.TRAVOCYTE_ALLOY, SFrameStacks.FERSTEEL_ALLOY
         }).register(plugin);
 
         new Resource(SFrameStacks.GALLIUM, Recycler.RECIPE_TYPE, new ItemStack[]{
@@ -188,7 +188,7 @@ public final class SFrameItems {
 
     private void registerMachines() {
         new ArtificialMangrove(Groups.MACHINES, SFrameStacks.ARTIFICIAL_MANGROVE, Foundry.RECIPE_TYPE, new ItemStack[]{
-                SFrameStacks.FEERSTEEL_ALLOY, SFrameStacks.ADRAMAL_ALLOY, SFrameStacks.FEERSTEEL_ALLOY,
+                SFrameStacks.FERSTEEL_ALLOY, SFrameStacks.ADRAMAL_ALLOY, SFrameStacks.FERSTEEL_ALLOY,
                 SFrameStacks.TRAVOCYTE_ALLOY, XMaterial.MUD.parseItem(), SFrameStacks.TRAVOCYTE_ALLOY,
                 SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.MEDIUM_CAPACITOR, SlimefunItems.ELECTRIC_MOTOR
         }).setEnergyPerTick(128).register(plugin);
@@ -242,14 +242,14 @@ public final class SFrameItems {
         }).setCollectDestroyedBlocks(true).setEnergyPerTick(2048).register(plugin);
 
         new ConcreteGenerator(Groups.MACHINES, SFrameStacks.CONCRETE_GENERATOR, Foundry.RECIPE_TYPE, new ItemStack[]{
-                SFrameStacks.FEERSTEEL_ALLOY, SlimefunItems.RAINBOW_CONCRETE, SFrameStacks.FEERSTEEL_ALLOY,
+                SFrameStacks.FERSTEEL_ALLOY, SlimefunItems.RAINBOW_CONCRETE, SFrameStacks.FERSTEEL_ALLOY,
                 SlimefunItems.ELECTRIC_MOTOR, XMaterial.BRICKS.parseItem(), SlimefunItems.ELECTRIC_MOTOR,
                 SFrameStacks.CUBIC_DIODES, SlimefunItems.MEDIUM_CAPACITOR, SFrameStacks.CUBIC_DIODES
         }).setEnergyPerTick(128).register(plugin);
 
         new ConcreteGenerator(Groups.MACHINES, SFrameStacks.ADV_CONCRETE_GENERATOR, Foundry.RECIPE_TYPE, new ItemStack[]{
-                SFrameStacks.FEERSTEEL_ALLOY, SFrameStacks.FEERSTEEL_ALLOY, SFrameStacks.FEERSTEEL_ALLOY,
-                getAlloyPlate(SFrameStacks.FEERSTEEL_ALLOY), SFrameStacks.CONCRETE_GENERATOR, getAlloyPlate(SFrameStacks.FEERSTEEL_ALLOY),
+                SFrameStacks.FERSTEEL_ALLOY, SFrameStacks.FERSTEEL_ALLOY, SFrameStacks.FERSTEEL_ALLOY,
+                getAlloyPlate(SFrameStacks.FERSTEEL_ALLOY), SFrameStacks.CONCRETE_GENERATOR, getAlloyPlate(SFrameStacks.FERSTEEL_ALLOY),
                 SFrameStacks.CUBIC_DIODES, SFrameStacks.CONTROL_MODULE, SFrameStacks.CUBIC_DIODES
         }).setProcessingSpeed(5).setEnergyPerTick(256).register(plugin);
 
@@ -260,7 +260,7 @@ public final class SFrameItems {
         }).setProcessingSpeed(30).setEnergyPerTick(512).register(plugin);
 
         new CryoticExtractor(Groups.MACHINES, SFrameStacks.CRYOTIC_EXTRACTOR, Foundry.RECIPE_TYPE, new ItemStack[]{
-                SFrameStacks.FEERSTEEL_ALLOY, SFrameStacks.RUBEDO, SFrameStacks.FEERSTEEL_ALLOY,
+                SFrameStacks.FERSTEEL_ALLOY, SFrameStacks.RUBEDO, SFrameStacks.FERSTEEL_ALLOY,
                 SFrameStacks.TRAVOCYTE_ALLOY, XMaterial.BEACON.parseItem(), SFrameStacks.TRAVOCYTE_ALLOY,
                 SlimefunItems.HEATING_COIL, SlimefunItems.BIG_CAPACITOR, SlimefunItems.HEATING_COIL
         }).setEnergyPerTick(512).register(plugin);
@@ -285,7 +285,7 @@ public final class SFrameItems {
 
         new FlowerGenerator(Groups.MACHINES, SFrameStacks.PRIME_FLOWER_GENERATOR, Foundry.RECIPE_TYPE, new ItemStack[]{
                 null, SFrameStacks.OROKIN_CELL, null,
-                getAlloyPlate(SFrameStacks.FEERSTEEL_ALLOY), SFrameStacks.ADV_FLOWER_GENERATOR, getAlloyPlate(SFrameStacks.FEERSTEEL_ALLOY),
+                getAlloyPlate(SFrameStacks.FERSTEEL_ALLOY), SFrameStacks.ADV_FLOWER_GENERATOR, getAlloyPlate(SFrameStacks.FERSTEEL_ALLOY),
                 PrimeComponents.createControlUnit(SFrameStacks.PRIME_FLOWER_GENERATOR), PrimeComponents.createCoreModule(SFrameStacks.PRIME_FLOWER_GENERATOR), PrimeComponents.createPowerCell(SFrameStacks.PRIME_FLOWER_GENERATOR)
         }).setProduction(32).setEnergyPerTick(512).register(plugin);
 
@@ -344,7 +344,7 @@ public final class SFrameItems {
         }).setProcessingSpeed(30).setEnergyPerTick(550).register(plugin);
 
         new WoolGenerator(Groups.MACHINES, SFrameStacks.WOOL_GENERATOR, Foundry.RECIPE_TYPE, new ItemStack[]{
-                SFrameStacks.FEERSTEEL_ALLOY, SlimefunItems.RAINBOW_WOOL, SFrameStacks.FEERSTEEL_ALLOY,
+                SFrameStacks.FERSTEEL_ALLOY, SlimefunItems.RAINBOW_WOOL, SFrameStacks.FERSTEEL_ALLOY,
                 SFrameStacks.DEVOLVED_NAMALON, XMaterial.WHITE_WOOL.parseItem(), SFrameStacks.DEVOLVED_NAMALON,
                 SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.MEDIUM_CAPACITOR, SlimefunItems.ELECTRIC_MOTOR
         }).setEnergyPerTick(128).register(plugin);
@@ -389,9 +389,9 @@ public final class SFrameItems {
         }).setBonusEnergy(6000).setEnergyGenerated(8000).register(plugin);
 
         new CumulativeGenerator(SFrameStacks.VOIDLIGHT_FUSION_GENERATOR, Foundry.RECIPE_TYPE, new ItemStack[]{
-                getAlloyPlate(SFrameStacks.FEERSTEEL_ALLOY), SFrameStacks.PRISMA_POWER_CORE, getAlloyPlate(SFrameStacks.FEERSTEEL_ALLOY),
-                getAlloyPlate(SFrameStacks.FEERSTEEL_ALLOY), SFrameStacks.PRISMATIC_ENERGIZED_CORE, getAlloyPlate(SFrameStacks.FEERSTEEL_ALLOY),
-                getAlloyPlate(SFrameStacks.FEERSTEEL_ALLOY), SFrameStacks.PRISMA_POWER_CORE, getAlloyPlate(SFrameStacks.FEERSTEEL_ALLOY)
+                getAlloyPlate(SFrameStacks.FERSTEEL_ALLOY), SFrameStacks.PRISMA_POWER_CORE, getAlloyPlate(SFrameStacks.FERSTEEL_ALLOY),
+                getAlloyPlate(SFrameStacks.FERSTEEL_ALLOY), SFrameStacks.PRISMATIC_ENERGIZED_CORE, getAlloyPlate(SFrameStacks.FERSTEEL_ALLOY),
+                getAlloyPlate(SFrameStacks.FERSTEEL_ALLOY), SFrameStacks.PRISMA_POWER_CORE, getAlloyPlate(SFrameStacks.FERSTEEL_ALLOY)
         }).setBonusEnergy(12000).setEnergyGenerated(16000).register(plugin);
 
         new CumulativeGenerator(SFrameStacks.AXIOM_ENERGENESIS_ENGINE, Foundry.RECIPE_TYPE, new ItemStack[]{

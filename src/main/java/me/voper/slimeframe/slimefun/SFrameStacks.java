@@ -472,11 +472,11 @@ public final class SFrameStacks {
             "A compound formed from Auron"
     );
 
-    public static final SlimefunItemStack FEERSTEEL_ALLOY = SFrameTheme.sfStackFromTheme(
-            "WF_FEERSTEEL_ALLOY",
+    public static final SlimefunItemStack FERSTEEL_ALLOY = SFrameTheme.sfStackFromTheme(
+            "WF_FERSTEEL_ALLOY",
             Material.IRON_INGOT,
             RESOURCES_THEME.withNameColor(ChatColor.GRAY),
-            "Feersteel Alloy",
+            "Fersteel Alloy",
             "A compound formed from Ferros"
     );
 
