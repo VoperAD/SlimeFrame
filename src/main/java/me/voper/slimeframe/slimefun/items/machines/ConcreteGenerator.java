@@ -26,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// TODO improve findNextRecipe method and implement getRecipeSectionLabel
 @ParametersAreNonnullByDefault
 public class ConcreteGenerator extends AbstractSelectorMachine implements RecipeDisplayItem {
 
@@ -53,6 +52,7 @@ public class ConcreteGenerator extends AbstractSelectorMachine implements Recipe
 
     public ConcreteGenerator(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
+        this.outputAmount = 6;
     }
 
     @Override
@@ -101,60 +101,6 @@ public class ConcreteGenerator extends AbstractSelectorMachine implements Recipe
     @Override
     protected void onCraftConditionsNotMet(BlockMenu menu) {
         MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), new CustomItemStack(Material.BARRIER, ChatColor.RED + "Select a concrete to generate!"));
-    }
-
-    @Override
-    protected MachineRecipe findNextRecipe(BlockMenu menu) {
-        ItemStack[] inputs = recipes.get(0).getInput();
-
-        // Creates a slot-ItemStack map according to the input slots
-        Map<Integer, ItemStack> inv = new HashMap<>();
-        for (int slot : getInputSlots()) {
-            ItemStack item = menu.getItemInSlot(slot);
-
-            if (item != null) {
-                inv.put(slot, ItemStackWrapper.wrap(item));
-            }
-        }
-
-        // If the output slots are full, return null
-        int maxedSlots = 0;
-        for (int slot : getOutputSlots()) {
-            ItemStack item = menu.getItemInSlot(slot);
-            if (item != null && item.getAmount() == item.getMaxStackSize()) {
-                maxedSlots += 1;
-            }
-        }
-        if (maxedSlots == getOutputSlots().length) { return null; }
-
-        Map<Integer, Integer> found = new HashMap<>();
-        for (ItemStack input: inputs) {
-            for (int slot: getInputSlots()) {
-                if (SlimefunUtils.isItemSimilar(inv.get(slot), input, true)) {
-                    found.put(slot, input.getAmount());
-                    break;
-                }
-            }
-        }
-
-        if (found.size() == inputs.length) {
-            ItemStack itemStack = new ItemStack(menu.getItemInSlot(getSelectorSlot()));
-            itemStack.setAmount(6);
-            MachineRecipe machineRecipe = new MachineRecipe(6, inputs, new ItemStack[]{itemStack});
-            if (!InvUtils.fitAll(menu.toInventory(), machineRecipe.getOutput(), getOutputSlots())) {
-                MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), MachineUtils.NO_SPACE);
-                return null;
-            }
-
-            for (Map.Entry<Integer, Integer> entry : found.entrySet()) {
-                menu.consumeItem(entry.getKey(), entry.getValue());
-            }
-
-            return machineRecipe;
-        } else {
-            found.clear();
-        }
-        return null;
     }
 
     @Nonnull
