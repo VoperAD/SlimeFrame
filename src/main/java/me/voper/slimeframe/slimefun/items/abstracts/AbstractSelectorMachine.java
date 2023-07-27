@@ -14,17 +14,18 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.voper.slimeframe.slimefun.items.machines.MachineDesign;
 import me.voper.slimeframe.utils.MachineUtils;
-import me.voper.slimeframe.utils.Utils;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Getter
@@ -58,6 +59,13 @@ public abstract class AbstractSelectorMachine extends AbstractProcessorMachine {
     protected void onNewInstance(BlockMenu menu, Block b) {
         super.onNewInstance(menu, b);
         menu.addMenuClickHandler(getSelectorSlot(), onSelectorClick(menu));
+        if (!BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), getBlockKey()) == null) {
+            BlockStorage.addBlockInfo(b, getBlockKey(), String.valueOf(0));
+        } else {
+            String selector = BlockStorage.getLocationInfo(b.getLocation(), getBlockKey());
+            if (selector == null) { return; }
+            menu.replaceExistingItem(getSelectorSlot(), selectionList().get(Integer.parseInt(selector)));
+        }
     }
 
     @Override
@@ -121,7 +129,29 @@ public abstract class AbstractSelectorMachine extends AbstractProcessorMachine {
     }
 
     @SuppressWarnings("deprecation")
-    protected abstract ChestMenu.MenuClickHandler onSelectorClick(BlockMenu menu);
+    protected ChestMenu.MenuClickHandler onSelectorClick(BlockMenu menu) {
+        return (player, i, itemStack, clickAction) -> {
+            int selector = Integer.parseInt(BlockStorage.getLocationInfo(menu.getLocation(), getBlockKey())) + 1;
+
+            if (selector >= selectionList().size()) {
+                selector = 0;
+            }
+
+            select(menu, selector);
+            return false;
+        };
+    }
+
+    public void select(BlockMenu menu, int target) {
+        BlockStorage.addBlockInfo(menu.getLocation(), getBlockKey(), String.valueOf(target));
+        menu.replaceExistingItem(getSelectorSlot(), selectionList().get(target));
+    }
+
+    @Nonnull
+    public abstract List<ItemStack> selectionList();
+
+    @Nonnull
+    public abstract String getBlockKey();
 
     public int getSelectorSlot() {
         return MachineDesign.SELECTOR_MACHINE.selectorSlot();

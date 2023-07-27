@@ -6,14 +6,11 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.voper.slimeframe.slimefun.items.abstracts.AbstractSelectorMachine;
 import me.voper.slimeframe.utils.MachineUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
@@ -52,33 +49,16 @@ public class DustGenerator extends AbstractSelectorMachine implements RecipeDisp
         registerRecipe(1, new ItemStack(Material.COBBLED_DEEPSLATE), new ItemStack(Material.REDSTONE));
     }
 
+    @Nonnull
     @Override
-    protected ChestMenu.MenuClickHandler onSelectorClick(BlockMenu menu) {
-        return (player, slot, itemstack, clickAction) -> {
-            int dustSelector = Integer.parseInt(BlockStorage.getLocationInfo(menu.getLocation(), BLOCK_KEY));
-            if (++dustSelector >= DUSTS.size()) {
-                BlockStorage.addBlockInfo(menu.getBlock(), BLOCK_KEY, String.valueOf(0));
-                dustSelector = 0;
-            } else {
-                BlockStorage.addBlockInfo(menu.getBlock(), BLOCK_KEY, String.valueOf(dustSelector));
-            }
-            menu.replaceExistingItem(getSelectorSlot(), DUSTS.get(dustSelector));
-            return false;
-        };
+    public List<ItemStack> selectionList() {
+        return DUSTS;
     }
 
+    @Nonnull
     @Override
-    protected void onNewInstance(BlockMenu menu, Block b) {
-        super.onNewInstance(menu, b);
-        if (BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), BLOCK_KEY) == null) {
-            BlockStorage.addBlockInfo(b, BLOCK_KEY, String.valueOf(0));
-        } else {
-            String dustSelector = BlockStorage.getLocationInfo(b.getLocation(), BLOCK_KEY);
-            if (dustSelector == null) {
-                return;
-            }
-            menu.replaceExistingItem(getSelectorSlot(), DUSTS.get(Integer.parseInt(dustSelector)));
-        }
+    public String getBlockKey() {
+        return BLOCK_KEY;
     }
 
     @Override
