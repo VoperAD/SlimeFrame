@@ -33,20 +33,21 @@ SlimeFrame is a Slimefun addon inspired by Warframe that adds new machines, ener
 
 ## Requirements
 
-Minecraft Version: 1.19+ (_it might work on servers that support lower versions as long as 1.19 is supported too_)
-Slimefun Version: RC-32+
+- This addon works on **Spigot**/**Paper** servers as well as on their forks, such as **Paper**.
+- **Java Version:** 16+
+- **Minecraft Version:** 1.19+ (_it might work on servers that support lower versions as long as 1.19 is supported too_)
+- **Slimefun Version:** RC-34+
 
 ## Commands
 
-### Anyone Permission:
-
-- /sframe relics -> Open your relics inventory
-- /sframe refine <refinement> -> Refine the relic that is in your hand.
-- /sframe traces [player] -> Show the amount of void traces a player has
-
-### Admin Permission:
-
-- /sframe invsee <player> -> Open a player's relics inventory
+|            Command            |         Permission          |                Description                |
+|:-----------------------------:|:---------------------------:|:-----------------------------------------:|
+|               -               |     slimeframe.anyone.*     | Permission node for all _anyone_ commands |
+|        /sframe relics         | slimeframe.anyone.inventory |        Open your relics inventory         |
+| /sframe refine \<refinement\> |  slimeframe.anyone.refine   |   Refine the relic that is in your hand   |
+|    /sframe traces [player]    |  slimeframe.anyone.traces   |  Show the amount of traces a player has   |
+|               -               |     slimeframe.admin.*      | Permission node for all _admin_ commands  |
+|   /sframe invsee \<player\>   |   slimeframe.admin.invsee   |     Open a player's relics inventory      |
 
 ## What Does It Add?
 
