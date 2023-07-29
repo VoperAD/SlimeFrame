@@ -156,6 +156,19 @@ public final class SFrameStacks {
             ChatColor.DARK_GREEN + "Shift " + ChatColor.GREEN + "Right Click " + UTILS_TOOLS_THEME.getLoreColor() + "to paste the configuration"
     );
 
+    public static final SlimefunItemStack SELECTOR_CONFIGURATOR = SFrameTheme.sfStackFromTheme(
+            "WF_SELECTOR_CONFIG",
+            enchantedItem(Material.BLAZE_ROD),
+            UTILS_TOOLS_THEME.withNameColor(Colors.FERRARI_RED),
+            "Selector Configurator",
+            "Copy the selected item in one",
+            "machine and paste it in another one",
+            "of the same type",
+            "",
+            ChatColor.GREEN + "Right Click " + UTILS_TOOLS_THEME.getLoreColor() + "to copy the selection",
+            ChatColor.DARK_GREEN + "Shift " + ChatColor.GREEN + "Right Click " + UTILS_TOOLS_THEME.getLoreColor() + "to paste the selection"
+    );
+
     public static final SlimefunItemStack ITEM_PROJECTOR = SFrameTheme.sfStackFromTheme(
             "WF_ITEM_PROJECTOR",
             Material.BLACKSTONE_SLAB,
@@ -164,6 +177,18 @@ public final class SFrameStacks {
             "This device made by the Corpus",
             "will display any item inside it",
             "as a beautiful hologram"
+    );
+
+    public static final SlimefunItemStack ENERGY_CENTRAL = SFrameTheme.sfStackFromTheme(
+            "WF_ENERGY_CENTRAL",
+            Material.BEACON,
+            UTILS_TOOLS_THEME.withNameColor(ChatColor.YELLOW),
+            "Energy Central",
+            "A device that shows information",
+            "about your energy network, such as",
+            "energy produced, total capacity and",
+            "the count of consumers,",
+            "generators and capacitors"
     );
 
     // ---- Gear ----
@@ -400,6 +425,17 @@ public final class SFrameStacks {
             "It can be synthesized"
     );
 
+    public static final SlimefunItemStack BOOSTED_TELLURIUM = SFrameTheme.sfStackFromTheme(
+            "WF_BOOSTED_TELLURIUM",
+            enchantedItem(Material.ECHO_SHARD),
+            RESOURCES_THEME.withNameColor(Colors.BLUE_VIOLET),
+            "Boosted Tellurium",
+            "Enhanced Tellurium used to",
+            "craft some machines",
+            "",
+            LoreBuilder.radioactive(Radioactivity.VERY_DEADLY)
+    );
+
     public static final SlimefunItemStack COOLANT_CANISTER = SFrameTheme.sfStackFromTheme(
             "WF_COOLANT_CANISTER",
             createPotion(PotionType.NIGHT_VISION),
@@ -531,9 +567,22 @@ public final class SFrameStacks {
             LoreBuilder.machine(MachineTier.GOOD, MachineType.MACHINE),
             Lore.powerPerSecond(512)
     );
-    
-    public static final SlimefunItemStack PRIME_CRYOTIC_EXTRACTOR = SFrameTheme.sfStackFromTheme(
+
+    public static final SlimefunItemStack ADV_CRYOTIC_EXTRACTOR = SFrameTheme.sfStackFromTheme(
             "WF_CRYO_EXTRACTOR_2",
+            Material.BEACON,
+            MACHINES_THEME.withNameColor(ChatColor.DARK_BLUE),
+            "Advanced Cryotic Extractor",
+            "An improved version of the",
+            "Cryotic Extractor",
+            "",
+            LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
+            Lore.powerPerSecond(1024),
+            Lore.speed(4)
+    );
+
+    public static final SlimefunItemStack PRIME_CRYOTIC_EXTRACTOR = SFrameTheme.sfStackFromTheme(
+            "WF_CRYO_EXTRACTOR_3",
             Material.BEACON,
             MACHINES_THEME,
             ChatColor.GOLD + "Prime " + ChatColor.DARK_BLUE + "Cryotic Extractor",
@@ -542,8 +591,8 @@ public final class SFrameStacks {
             "a better performance",
             "",
             LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
-            Lore.powerPerSecond(1024),
-            Lore.speed(10)
+            Lore.powerPerSecond(2048),
+            Lore.speed(20)
     );
 
     public static final SlimefunItemStack THERMIA_EXTRACTOR = SFrameTheme.sfStackFromTheme(
@@ -778,11 +827,12 @@ public final class SFrameStacks {
             "Destroys every block bellow it",
             "and in the same chunk",
             "",
-            LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
-            Lore.powerPerSecond(1024)
+            LoreBuilder.machine(MachineTier.GOOD, MachineType.MACHINE),
+            Lore.powerPerSecond(1024),
+            Lore.speed(1)
     );
 
-    public static final SlimefunItemStack ADVANCED_CHUNK_EATER = SFrameTheme.sfStackFromTheme(
+    public static final SlimefunItemStack ADV_CHUNK_EATER = SFrameTheme.sfStackFromTheme(
             "WF_CHUNK_EATER_2",
             Material.CRYING_OBSIDIAN,
             MACHINES_THEME.withNameColor(ChatColor.DARK_PURPLE),
@@ -790,8 +840,22 @@ public final class SFrameStacks {
             "An advanced version of the Chunk Eater",
             "It will also collect the destroyed blocks",
             "",
+            LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
+            Lore.powerPerSecond(2048),
+            Lore.speed(1)
+    );
+
+    public static final SlimefunItemStack PRIME_CHUNK_EATER = SFrameTheme.sfStackFromTheme(
+            "WF_CHUNK_EATER_3",
+            enchantedItem(Material.CRYING_OBSIDIAN),
+            MACHINES_THEME,
+            ChatColor.GOLD + "Prime " + Colors.BLUE_VIOLET + "Chunk Eater",
+            "Devours a whole chunk",
+            "layer by layer",
+            "",
             LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
-            Lore.powerPerSecond(2048)
+            Lore.powerPerSecond(4096),
+            Lore.speed(16)
     );
 
     public static final SlimefunItemStack TREE_PEELER = SFrameTheme.sfStackFromTheme(
@@ -873,7 +937,8 @@ public final class SFrameStacks {
             Material.FURNACE,
             MACHINES_THEME.withNameColor(Colors.ORANGE),
             "Advanced Sulfate Producer",
-            "Produces sulfate from basalt",
+            "An improved version of the",
+            "Sulfate Producer",
             "",
             LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
             Lore.powerPerSecond(256),
@@ -886,12 +951,95 @@ public final class SFrameStacks {
             Material.FURNACE,
             MACHINES_THEME,
             ChatColor.GOLD + "Prime " + ChatColor.RED + "Sulfate Producer",
-            "Produces sulfate from basalt",
+            "The best version of the",
+            "Sulfate Producer",
             "",
             LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
             Lore.powerPerSecond(512),
             Lore.speed(30),
             Lore.production(8)
+    );
+
+    public static final SlimefunItemStack DUST_GENERATOR = SFrameTheme.sfStackFromTheme(
+            "WF_DUST_GEN",
+            Material.FURNACE,
+            MACHINES_THEME.withNameColor(Colors.CRAYOLA_BLUE),
+            "Dust Generator",
+            "With this machine you can",
+            "select which dust you",
+            "want to produce!",
+            "",
+            LoreBuilder.machine(MachineTier.GOOD, MachineType.MACHINE),
+            Lore.powerPerSecond(256),
+            Lore.speed(1)
+    );
+
+    public static final SlimefunItemStack ADV_DUST_GENERATOR = SFrameTheme.sfStackFromTheme(
+            "WF_DUST_GEN_2",
+            Material.FURNACE,
+            MACHINES_THEME.withNameColor(Colors.CRAYOLA_BLUE),
+            "Advanced Dust Generator",
+            "An improved version of the Dust Generator",
+            "",
+            LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
+            Lore.powerPerSecond(512),
+            Lore.speed(2),
+            Lore.production(4)
+    );
+
+    public static final SlimefunItemStack PRIME_DUST_GENERATOR = SFrameTheme.sfStackFromTheme(
+            "WF_DUST_GEN_3",
+            Material.FURNACE,
+            MACHINES_THEME,
+            ChatColor.GOLD + "Prime " + Colors.CRAYOLA_BLUE + "Dust Generator",
+            "The best version of the Dust Generator",
+            "",
+            LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
+            Lore.powerPerSecond(1024),
+            Lore.speed(4),
+            Lore.production(32)
+    );
+
+    public static final SlimefunItemStack GLASS_GENERATOR = SFrameTheme.sfStackFromTheme(
+            "WF_GLASS_GENERATOR",
+            Material.GLASS,
+            MACHINES_THEME.withNameColor(Colors.SAVOY_BLUE),
+            "Glass Generator",
+            "A versatile machine capable of",
+            "producing every color of glass",
+            "",
+            LoreBuilder.machine(MachineTier.GOOD, MachineType.MACHINE),
+            Lore.powerPerSecond(128),
+            Lore.speed(1)
+    );
+
+    public static final SlimefunItemStack ADV_GLASS_GENERATOR = SFrameTheme.sfStackFromTheme(
+            "WF_GLASS_GENERATOR_2",
+            Material.LIGHT_BLUE_STAINED_GLASS,
+            MACHINES_THEME.withNameColor(Colors.CRAYOLA_BLUE),
+            "Advanced Glass Generator",
+            "An upgraded version of the",
+            "Glass Generator for bigger productions",
+            "",
+            LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
+            Lore.powerPerSecond(256),
+            Lore.speed(5),
+            Lore.production(2)
+    );
+
+    public static final SlimefunItemStack PRIME_GLASS_GENERATOR = SFrameTheme.sfStackFromTheme(
+            "WF_GLASS_GENERATOR_3",
+            Material.BLUE_STAINED_GLASS,
+            MACHINES_THEME,
+            ChatColor.GOLD + "Prime " + Colors.NEON_BLUE + "Glass Generator",
+            "The best version of the",
+            "Glass Generator, embedded with",
+            "Orokin technology",
+            "",
+            LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
+            Lore.powerPerSecond(512),
+            Lore.speed(30),
+            Lore.production(6)
     );
 
     // Energy Generators
@@ -1051,7 +1199,7 @@ public final class SFrameStacks {
             "Meso B1",
             Relic.Era.MESO,
             new SlimefunItemStack[]{PrimeComponents.createControlUnit(PRIME_CRYOTIC_EXTRACTOR), SlimefunItems.REINFORCED_ALLOY_INGOT, SFrameStacks.PYROTIC_ALLOY},
-            new SlimefunItemStack[]{PrimeComponents.createPowerCell(ASTRAL_PRIME_GENERATOR), SlimefunItems.LAVA_GENERATOR},
+            new SlimefunItemStack[]{PrimeComponents.createPowerCell(ASTRAL_PRIME_GENERATOR), PrimeComponents.createPowerCell(PRIME_GLASS_GENERATOR)},
             PrimeComponents.createCoreModule(PRIME_BASALT_GEN)
     );
 
@@ -1091,7 +1239,7 @@ public final class SFrameStacks {
             "Neo A1",
             Relic.Era.NEO,
             new SlimefunItemStack[]{PrimeComponents.createControlUnit(PRIME_ARTIFICIAL_MANGROVE), UtilsComponents.createVoidShard(PRIME_NOSAM_PICK), SlimefunItems.CARBONADO},
-            new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_TREE_PEELER), SlimefunItems.CARBONADO_EDGED_CAPACITOR},
+            new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_TREE_PEELER), SlimefunItems.BIG_CAPACITOR},
             PrimeComponents.createCoreModule(ASTRAL_PRIME_GENERATOR)
     );
 
@@ -1099,14 +1247,14 @@ public final class SFrameStacks {
             "Axi N1",
             Relic.Era.AXI,
             new SlimefunItemStack[]{SlimefunItems.BLANK_RUNE, SlimefunItems.HOLOGRAM_PROJECTOR, SFrameStacks.SALVAGE},
-            new SlimefunItemStack[]{SFrameStacks.TELLURIUM, SlimefunItems.FLUID_PUMP},
+            new SlimefunItemStack[]{SFrameStacks.TELLURIUM_FRAGMENT, SlimefunItems.FLUID_PUMP},
             UtilsComponents.createNeuralNexus(PRIME_NOSAM_PICK)
     );
 
     public static final RelicItemStack LITH_O1 = new RelicItemStack(
             "Lith O1",
             Relic.Era.LITH,
-            new SlimefunItemStack[]{SlimefunItems.TRASH_CAN, SFrameStacks.AURON, SFrameStacks.PLASTIDS},
+            new SlimefunItemStack[]{SlimefunItems.TRASH_CAN, PrimeComponents.createControlUnit(PRIME_DUST_GENERATOR), SFrameStacks.PLASTIDS},
             new SlimefunItemStack[]{SlimefunItems.SOULBOUND_RUNE, SlimefunItems.ELECTRIC_DUST_WASHER_2},
             UtilsComponents.createNeuralNexus(PRIME_OROKIN_WAND)
     );
@@ -1115,8 +1263,32 @@ public final class SFrameStacks {
             "Meso S1",
             Relic.Era.MESO,
             new SlimefunItemStack[]{PrimeComponents.createControlUnit(PRIME_BASALT_GEN), SlimefunItems.SMALL_CAPACITOR, SlimefunItems.CARBONADO},
-            new SlimefunItemStack[]{HESPAZYM_ALLOY, SlimefunItems.RAINBOW_RUNE},
+            new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_DUST_GENERATOR), SlimefunItems.RAINBOW_RUNE},
             PrimeComponents.createCoreModule(PRIME_SULFATE_PRODUCER)
+    );
+
+    public static final RelicItemStack NEO_D1 = new RelicItemStack(
+            "Neo D1",
+            Relic.Era.NEO,
+            new SlimefunItemStack[]{SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.CARBON},
+            new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_WOOL_GENERATOR), PrimeComponents.createPowerCell(PRIME_CHUNK_EATER)},
+            PrimeComponents.createCoreModule(PRIME_DUST_GENERATOR)
+    );
+
+    public static final RelicItemStack AXI_G1 = new RelicItemStack(
+            "Axi G1",
+            Relic.Era.AXI,
+            new SlimefunItemStack[]{PrimeComponents.createControlUnit(PRIME_CHUNK_EATER), SlimefunItems.URANIUM, SlimefunItems.GOLD_24K},
+            new SlimefunItemStack[]{SlimefunItems.ELECTRIC_DUST_WASHER_2, SlimefunItems.MEDIUM_CAPACITOR},
+            PrimeComponents.createCoreModule(PRIME_GLASS_GENERATOR)
+    );
+
+    public static final RelicItemStack LITH_C1 = new RelicItemStack(
+            "Lith C1",
+            Relic.Era.LITH,
+            new SlimefunItemStack[]{PrimeComponents.createControlUnit(PRIME_TREE_PEELER), PrimeComponents.createControlUnit(PRIME_GLASS_GENERATOR), SlimefunItems.REINFORCED_PLATE},
+            new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_FLOWER_GENERATOR), SlimefunItems.STAFF_ELEMENTAL},
+            PrimeComponents.createCoreModule(PRIME_CHUNK_EATER)
     );
 
     static {
