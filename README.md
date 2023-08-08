@@ -33,7 +33,7 @@ SlimeFrame is a Slimefun addon inspired by Warframe that adds new machines, ener
 
 ## Requirements
 
-- This addon works on **Spigot**/**Paper** servers as well as on their forks, such as **Paper**.
+- This addon works on **Spigot**/**Paper** servers as well as on their forks, such as **Purpur**.
 - **Java Version:** 16+
 - **Minecraft Version:** 1.19+ (_it might work on servers that support lower versions as long as 1.19 is supported too_)
 - **Slimefun Version:** RC-34+
