@@ -58,7 +58,7 @@ public final class RelicsListener implements Listener {
         // Increment the relic reactants
         if (e.getEntity().getType() == EntityType.ENDERMAN) {
             int random = ThreadLocalRandom.current().nextInt(100);
-            if (random < 25) {
+            if (random < settings.getInt(SettingsManager.ConfigField.REACTANTS_CHANCE)) {
 
                 // Support for bedrock players
                 boolean isBedrockPlayer =  SlimeFrame.getGeyserApi() != null && SlimeFrame.getGeyserApi().isBedrockPlayer(killer.getUniqueId());
@@ -66,7 +66,7 @@ public final class RelicsListener implements Listener {
                 String slot = isBedrockPlayer ? "first slot" : "off hand";
 
                 SlimefunItem sfItem = SlimefunItem.getByItem(relic);
-                if (sfItem != null && sfItem instanceof Relic) {
+                if (sfItem instanceof Relic) {
                     if (relic.getAmount() > 1) {
                         ChatUtils.sendMessage(killer, ChatColor.RED + "It wasn't possible to deliver a reactant to you",
                                 ChatColor.RED + "Make sure that you only have one relic in your " + slot);

@@ -47,6 +47,7 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
         instance = this;
+        saveDefaultConfig();
 
         new Metrics(this, 19212);
 
