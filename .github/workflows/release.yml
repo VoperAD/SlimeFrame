@@ -56,7 +56,7 @@ jobs:
           tag: ${{ steps.changelog.outputs.tag }}
           name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
-          artifacts: "target/${{ steps.project.outputs.artifact }}-${{ steps.changelog.outputs.version }}.jar"
+          artifacts: "target/${{ steps.project.outputs.artifact }}-v${{ steps.changelog.outputs.version }}.jar"
 
   on-failure:
     runs-on: ubuntu-latest
