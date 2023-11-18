@@ -25,7 +25,9 @@
 
 ## Download
 
-- <a href="https://www.spigotmc.org/resources/slimeframe.111432/">Download from Spigot</a>
+- <a href="https://github.com/VoperAD/SlimeFrame/releases/latest">Download from GitHub Releases</a> <b>(the JAR is available within the Assets section)</b>
+<img src="https://github.com/VoperAD/SlimeFrame/assets/92862848/5dbd6cb1-41b6-4c99-bffd-53b7773ef740" width=600>
+
 
 ## About the Addon
 
