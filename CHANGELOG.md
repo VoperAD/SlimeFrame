@@ -1,3 +1,12 @@
+## [1.3.1](https://github.com/VoperAD/SlimeFrame/compare/v1.3.0...v1.3.1) (2023-11-18)
+
+
+### Bug Fixes
+
+* add a 'v' to the artifact name in the final step of Release.yml ([f3a8794](https://github.com/VoperAD/SlimeFrame/commit/f3a8794098fa5f3ac6d24ce7f1719445f8e9731c))
+
+
+
 # [1.3.0](https://github.com/VoperAD/SlimeFrame/compare/v1.2.0...v1.3.0) (2023-11-18)
 
 
