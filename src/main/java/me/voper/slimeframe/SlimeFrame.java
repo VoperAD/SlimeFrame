@@ -12,7 +12,7 @@ import me.voper.slimeframe.slimefun.datatypes.MerchantRecipeListDataType;
 import me.voper.slimeframe.slimefun.researches.Researches;
 import me.voper.slimeframe.tasks.ArmorMonitorTask;
 import me.voper.slimeframe.tasks.CoolantRaknoidsTask;
-import me.voper.slimeframe.utils.Updater;
+import me.voper.slimeframe.utils.AutoUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
@@ -29,7 +29,6 @@ import java.util.Set;
 public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
 
     private static SlimeFrame instance;
-    public static final int RESOURCE_ID = 111432;
 
     private SettingsManager settingsManager;
     private RelicInventoryManager relicInventoryManager;
@@ -72,11 +71,9 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
         this.startTasks();
         this.logStart();
 
-        if (settingsManager.getBoolean(SettingsManager.ConfigField.AUTO_UPDATE)) {
-            new Updater(this, RESOURCE_ID, this.getFile(), Updater.UpdateType.CHECK_DOWNLOAD, true);
-        } else {
-            new Updater(this, RESOURCE_ID, this.getFile(), Updater.UpdateType.VERSION_CHECK, true);
-        }
+        AutoUpdater autoUpdater = new AutoUpdater(this, this.getFile());
+        new Thread(autoUpdater).start();
+
     }
 
     @Override
