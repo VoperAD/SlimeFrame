@@ -65,6 +65,7 @@ public final class SettingsManager {
     public enum ConfigField{
 
         AUTO_UPDATE("options.auto-update", true),
+        AUTO_UPDATE_MAJOR("options.auto-update-major", false),
         RESEARCHES_ENABLED("options.enable-researches", true),
         ENABLE_AE_ITEMS_IN_SOUL_CONTRACTS("options.enable-ae-items-in-soul-contracts", false),
         ORE_TRADE_CHANCE("options.ore-trade-chance", 1),
