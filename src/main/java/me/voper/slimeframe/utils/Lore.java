@@ -1,7 +1,5 @@
 package me.voper.slimeframe.utils;
 
-import me.voper.slimeframe.utils.Utils;
-
 import javax.annotation.Nonnull;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

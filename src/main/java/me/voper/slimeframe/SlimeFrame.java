@@ -2,13 +2,13 @@ package me.voper.slimeframe;
 
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import me.voper.slimeframe.implementation.listeners.*;
+import me.voper.slimeframe.core.datatypes.MerchantRecipeListDataType;
 import me.voper.slimeframe.core.managers.CommandsManager;
 import me.voper.slimeframe.core.managers.RelicInventoryManager;
 import me.voper.slimeframe.core.managers.SettingsManager;
 import me.voper.slimeframe.core.managers.SupportedPluginManager;
 import me.voper.slimeframe.implementation.SFrameItems;
-import me.voper.slimeframe.core.datatypes.MerchantRecipeListDataType;
+import me.voper.slimeframe.implementation.listeners.*;
 import me.voper.slimeframe.implementation.researches.Researches;
 import me.voper.slimeframe.implementation.tasks.ArmorMonitorTask;
 import me.voper.slimeframe.implementation.tasks.CoolantRaknoidsTask;

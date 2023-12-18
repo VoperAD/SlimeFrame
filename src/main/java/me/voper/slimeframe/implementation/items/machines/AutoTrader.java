@@ -18,8 +18,8 @@ import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecip
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
-import me.voper.slimeframe.implementation.SFrameStacks;
 import me.voper.slimeframe.core.datatypes.MerchantRecipeListDataType;
+import me.voper.slimeframe.implementation.SFrameStacks;
 import me.voper.slimeframe.implementation.items.abstracts.AbstractProcessorMachine;
 import me.voper.slimeframe.utils.Keys;
 import me.voper.slimeframe.utils.MachineUtils;

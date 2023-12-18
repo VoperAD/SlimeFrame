@@ -3,8 +3,8 @@ package me.voper.slimeframe.implementation.items.relics;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import lombok.Getter;
 import lombok.Setter;
-import me.voper.slimeframe.utils.HeadTextures;
 import me.voper.slimeframe.utils.Colors;
+import me.voper.slimeframe.utils.HeadTextures;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.inventory.ItemStack;
 
