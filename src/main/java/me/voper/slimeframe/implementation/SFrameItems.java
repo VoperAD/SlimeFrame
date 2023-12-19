@@ -30,10 +30,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.Nonnull;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public final class SFrameItems {
 
@@ -112,7 +109,12 @@ public final class SFrameItems {
                 .sorted(Comparator.comparing(SlimefunItem::getId))
                 .forEach(this::registerAlloyPlate);
 
-        new Resource(SFrameStacks.CONDENSED_PLATE, ALLOY_PLATES_MAP.values().toArray(new ItemStack[9])).register(plugin);
+        SlimefunItemStack[] plates = ALLOY_PLATES_MAP.values()
+                .stream()
+                .sorted(Comparator.comparing(SlimefunItemStack::getItemId))
+                .toList()
+                .toArray(new SlimefunItemStack[9]);
+        new Resource(SFrameStacks.CONDENSED_PLATE, plates).register(plugin);
 
         new Cryotic().register(plugin);
         new CoolantCanister().register(plugin);
