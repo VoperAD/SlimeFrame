@@ -7,6 +7,7 @@ import io.github.thebusybiscuit.slimefun4.core.handlers.EntityInteractHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.core.datatypes.MerchantRecipeListDataType;
@@ -21,6 +22,7 @@ import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.AbstractVillager;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.MerchantRecipe;
@@ -28,6 +30,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Predicate;
@@ -54,7 +57,9 @@ public class MerchantSoulContract extends SimpleSlimefunItem<EntityInteractHandl
     @Override
     public EntityInteractHandler getItemHandler() {
         return (e, item, offhand) -> {
-            if (e.isCancelled() || !Slimefun.getProtectionManager().hasPermission(e.getPlayer(), e.getRightClicked().getLocation(), Interaction.INTERACT_ENTITY) || !Slimefun.getProtectionManager().hasPermission(e.getPlayer(), e.getRightClicked().getLocation(), Interaction.ATTACK_ENTITY)) {
+            Player p = e.getPlayer();
+
+            if (e.isCancelled() || !Slimefun.getProtectionManager().hasPermission(p, e.getRightClicked().getLocation(), Interaction.INTERACT_ENTITY) || !Slimefun.getProtectionManager().hasPermission(p, e.getRightClicked().getLocation(), Interaction.ATTACK_ENTITY)) {
                 // They don't have permission to use it in this area
                 return;
             }
@@ -68,14 +73,14 @@ public class MerchantSoulContract extends SimpleSlimefunItem<EntityInteractHandl
 
                 if (PersistentDataAPI.has(meta, Keys.MERCHANT_RECIPE, new MerchantRecipeListDataType())) {
                     e.setCancelled(true);
-                    e.getPlayer().sendMessage("Contract already sealed");
+                    p.sendMessage("Contract already sealed");
                     return;
                 }
 
                 final List<MerchantRecipe> recipes = new ArrayList<>(merchant.getRecipes());
                 if (recipes.isEmpty()) {
                     e.setCancelled(true);
-                    e.getPlayer().sendMessage("This merchant does not have any trade available for you");
+                    p.sendMessage("This merchant does not have any trade available for you");
                     return;
                 }
 
@@ -123,9 +128,16 @@ public class MerchantSoulContract extends SimpleSlimefunItem<EntityInteractHandl
                     );
                 });
 
+                ItemStack contract = new ItemStack(item);
+                contract.setAmount(1);
                 meta.setLore(lore);
-                item.setItemMeta(meta);
+                contract.setItemMeta(meta);
 
+                ItemUtils.consumeItem(item, false);
+                HashMap<Integer, ItemStack> result = p.getInventory().addItem(contract);
+                if (!result.isEmpty()) {
+                    p.getWorld().dropItemNaturally(p.getLocation(), contract);
+                }
 
                 double offset = ThreadLocalRandom.current().nextDouble(0.5);
 
@@ -135,7 +147,7 @@ public class MerchantSoulContract extends SimpleSlimefunItem<EntityInteractHandl
 
                 e.setCancelled(true);
                 merchant.setHealth(0);
-                ChatUtils.sendMessage(e.getPlayer(), "Soul Contract successfully sealed");
+                ChatUtils.sendMessage(p, "Soul Contract successfully sealed");
             }
         };
     }
