@@ -1,3 +1,12 @@
+## [1.4.2](https://github.com/VoperAD/SlimeFrame/compare/v1.4.1...v1.4.2) (2023-12-22)
+
+
+### Bug Fixes
+
+* **serialization:** temporary fix for the problem derived from moving the MerchantRecipeListDataType to another package ([afe11dd](https://github.com/VoperAD/SlimeFrame/commit/afe11dd98bbaaed1ae1b1c4bc3fa0b04c63a7473))
+
+
+
 ## [1.4.1](https://github.com/VoperAD/SlimeFrame/compare/v1.4.0...v1.4.1) (2023-12-19)
 
 
@@ -37,21 +46,6 @@
 ### Bug Fixes
 
 * add a 'v' to the artifact name in the final step of Release.yml ([f3a8794](https://github.com/VoperAD/SlimeFrame/commit/f3a8794098fa5f3ac6d24ce7f1719445f8e9731c))
-
-
-
-# [1.3.0](https://github.com/VoperAD/SlimeFrame/compare/v1.2.0...v1.3.0) (2023-11-18)
-
-
-### Bug Fixes
-
-* implement the Java CI workflow logic correctly ([3a0a570](https://github.com/VoperAD/SlimeFrame/commit/3a0a570df9c77dc76f953fe45c4ef5c43bfd3a04))
-
-
-### Features
-
-* add a new AutoUpdater based on GitHub releases and remove the old one ([ae812d8](https://github.com/VoperAD/SlimeFrame/commit/ae812d84a6b908e706350588915a4450688a4c98))
-* add auto release workflow ([58ce342](https://github.com/VoperAD/SlimeFrame/commit/58ce3425c39ff721034f86ee7516e698c09cd2d2))
 
 
 
