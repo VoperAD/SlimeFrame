@@ -64,7 +64,7 @@ public class MerchantRecipeListDataType implements PersistentDataType<byte[], Li
 
         List<MerchantRecipe> merchantRecipes = new ArrayList<>();
 
-        try (ObjectInputStream objectStream = new ObjectInputStream(new ByteArrayInputStream(bytes))) {
+        try (ObjectInputStream objectStream = new CustomObjectInputStream(new ByteArrayInputStream(bytes))) {
             int recipeCount = objectStream.readInt();
             for (int i = 0; i < recipeCount; i++) {
                 SerializableMerchantRecipe serializableRecipe = (SerializableMerchantRecipe) objectStream.readObject();
@@ -201,6 +201,24 @@ public class MerchantRecipeListDataType implements PersistentDataType<byte[], Li
             return new SerializableSlimefunItemStack(ItemStack.deserialize(args));
         }
 
+    }
+
+    public static class CustomObjectInputStream extends ObjectInputStream {
+
+        public CustomObjectInputStream(InputStream in) throws IOException {
+            super(in);
+        }
+
+        @Override
+        protected ObjectStreamClass readClassDescriptor() throws IOException, ClassNotFoundException {
+            ObjectStreamClass osc = super.readClassDescriptor();
+
+            if (osc.getName().equals("me.voper.slimeframe.slimefun.datatypes.MerchantRecipeListDataType$SerializableMerchantRecipe")) {
+                osc = ObjectStreamClass.lookup(MerchantRecipeListDataType.SerializableMerchantRecipe.class);
+            }
+
+            return osc;
+        }
     }
 
 }
