@@ -49,7 +49,7 @@ public class NosamPick extends SimpleSlimefunItem<ToolUseHandler> {
             int probability = getProbability(specialOre);
             int random = ThreadLocalRandom.current().nextInt(100) + 1;
 
-            if (random > probability) {
+            if (random <= probability) {
                 b.getWorld().dropItemNaturally(b.getLocation(), specialOre.getItem().clone());
             }
         });
