@@ -1,9 +1,6 @@
 package me.voper.slimeframe.implementation.items.components;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,14 +8,10 @@ import lombok.experimental.Accessors;
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.implementation.SFrameStacks;
 import me.voper.slimeframe.implementation.SFrameTheme;
-import me.voper.slimeframe.implementation.groups.Groups;
 import me.voper.slimeframe.implementation.items.relics.RelicItemStack;
 import me.voper.slimeframe.utils.Colors;
 import me.voper.slimeframe.utils.HeadTextures;
-import me.voper.slimeframe.utils.Keys;
-import me.voper.slimeframe.utils.Utils;
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
@@ -35,7 +28,6 @@ import java.util.Map;
 @ParametersAreNonnullByDefault
 public class PrimeComponents {
 
-    public static final RecipeType RECIPE_TYPE = new RecipeType(Keys.createKey("prime_component_reward"), new CustomItemStack(Material.DIAMOND, ChatColor.AQUA + "This item is dropped by the following relics:"));
     public static final Map<SlimefunItemStack, PrimeComponents> COMPONENTS_MAP = new HashMap<>();
 
     // Machines & Generators components
@@ -152,13 +144,13 @@ public class PrimeComponents {
     }
 
     private static void register(PrimeComponents components, SlimeFrame plugin) throws IllegalAccessException {
-        UnplaceableBlock coreModuleSF = new UnplaceableBlock(Groups.PRIME_COMPONENTS, components.getCoreModule(), RECIPE_TYPE, Utils.NULL_ITEMS_ARRAY);
-        UnplaceableBlock powerCellSF = new UnplaceableBlock(Groups.PRIME_COMPONENTS, components.getPowerCell(), RECIPE_TYPE, Utils.NULL_ITEMS_ARRAY);
-        UnplaceableBlock controlUnitSF = new UnplaceableBlock(Groups.PRIME_COMPONENTS, components.getControlUnit(), RECIPE_TYPE, Utils.NULL_ITEMS_ARRAY);
+        Component coreModuleSF = new Component(components.getCoreModule());
+        Component powerCellSF = new Component(components.getPowerCell());
+        Component controlUnitSF = new Component(components.getControlUnit());
 
-        List<ItemStack> recipeCoreModule = new ArrayList<>(9);
-        List<ItemStack> recipePowerCell = new ArrayList<>(9);
-        List<ItemStack> recipeControlUnit = new ArrayList<>(9);
+        List<ItemStack> relicsCoreModule = new ArrayList<>();
+        List<ItemStack> relicsPowerCell = new ArrayList<>();
+        List<ItemStack> relicsControlUnit = new ArrayList<>();
 
         for (Field field: SFrameStacks.class.getDeclaredFields()) {
             if (field.getType() != RelicItemStack.class) continue;
@@ -166,22 +158,22 @@ public class PrimeComponents {
 
             for (SlimefunItemStack common: relic.getCommonDrops()) {
                 if (!SlimefunUtils.isItemSimilar(components.getControlUnit(), common, true)) continue;
-                recipeControlUnit.add(relic);
+                relicsControlUnit.add(relic);
             }
 
             for (SlimefunItemStack uncommon: relic.getUncommonDrops()) {
                 if (!SlimefunUtils.isItemSimilar(components.getPowerCell(), uncommon, true)) continue;
-                recipePowerCell.add(relic);
+                relicsPowerCell.add(relic);
             }
 
             if (SlimefunUtils.isItemSimilar(components.getCoreModule(), relic.getRareDrop(), true)) {
-                recipeCoreModule.add(relic);
+                relicsCoreModule.add(relic);
             }
         }
 
-        coreModuleSF.setRecipe(recipeCoreModule.toArray(new ItemStack[9]));
-        powerCellSF.setRecipe(recipePowerCell.toArray(new ItemStack[9]));
-        controlUnitSF.setRecipe(recipeControlUnit.toArray(new ItemStack[9]));
+        coreModuleSF.setRelics(relicsCoreModule);
+        powerCellSF.setRelics(relicsPowerCell);
+        controlUnitSF.setRelics(relicsControlUnit);
 
         coreModuleSF.register(plugin);
         powerCellSF.register(plugin);

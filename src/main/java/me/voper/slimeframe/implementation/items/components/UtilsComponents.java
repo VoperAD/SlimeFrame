@@ -1,7 +1,6 @@
 package me.voper.slimeframe.implementation.items.components;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,14 +8,13 @@ import lombok.experimental.Accessors;
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.implementation.SFrameStacks;
 import me.voper.slimeframe.implementation.SFrameTheme;
-import me.voper.slimeframe.implementation.groups.Groups;
 import me.voper.slimeframe.implementation.items.relics.RelicItemStack;
 import me.voper.slimeframe.utils.Colors;
 import me.voper.slimeframe.utils.HeadTextures;
-import me.voper.slimeframe.utils.Utils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +24,7 @@ import java.util.Map;
 @Getter
 @Setter
 @Accessors(chain = true)
+@ParametersAreNonnullByDefault
 public class UtilsComponents {
 
     public static final Map<SlimefunItemStack, UtilsComponents> COMPONENTS_MAP = new HashMap<>();
@@ -140,13 +139,13 @@ public class UtilsComponents {
     }
 
     private static void register(UtilsComponents components, SlimeFrame plugin) throws IllegalAccessException {
-        UnplaceableBlock neuralNex = new UnplaceableBlock(Groups.PRIME_COMPONENTS, components.getNeuralNexusCore(), PrimeComponents.RECIPE_TYPE, Utils.NULL_ITEMS_ARRAY);
-        UnplaceableBlock temporalCog = new UnplaceableBlock(Groups.PRIME_COMPONENTS, components.getTemporalCogwheel(), PrimeComponents.RECIPE_TYPE, Utils.NULL_ITEMS_ARRAY);
-        UnplaceableBlock voidShard = new UnplaceableBlock(Groups.PRIME_COMPONENTS, components.getVoidShardEssence(), PrimeComponents.RECIPE_TYPE, Utils.NULL_ITEMS_ARRAY);
+        Component neuralNex = new Component(components.getNeuralNexusCore());
+        Component temporalCog = new Component(components.getTemporalCogwheel());
+        Component voidShard = new Component(components.getVoidShardEssence());
 
-        List<ItemStack> recipeNeuralNex = new ArrayList<>(9);
-        List<ItemStack> recipeTempCog = new ArrayList<>(9);
-        List<ItemStack> recipeVoidShard = new ArrayList<>(9);
+        List<ItemStack> relicsNeuralNex = new ArrayList<>();
+        List<ItemStack> relicsTempCog = new ArrayList<>();
+        List<ItemStack> relicsVoidShard = new ArrayList<>();
 
         for (Field field: SFrameStacks.class.getDeclaredFields()) {
             if (field.getType() != RelicItemStack.class) continue;
@@ -154,22 +153,22 @@ public class UtilsComponents {
 
             for (SlimefunItemStack common: relic.getCommonDrops()) {
                 if (!SlimefunUtils.isItemSimilar(components.getVoidShardEssence(), common, true)) continue;
-                recipeVoidShard.add(relic);
+                relicsVoidShard.add(relic);
             }
 
             for (SlimefunItemStack uncommon: relic.getUncommonDrops()) {
                 if (!SlimefunUtils.isItemSimilar(components.getTemporalCogwheel(), uncommon, true)) continue;
-                recipeTempCog.add(relic);
+                relicsTempCog.add(relic);
             }
 
             if (SlimefunUtils.isItemSimilar(components.getNeuralNexusCore(), relic.getRareDrop(), true)) {
-                recipeNeuralNex.add(relic);
+                relicsNeuralNex.add(relic);
             }
         }
 
-        neuralNex.setRecipe(recipeNeuralNex.toArray(new ItemStack[9]));
-        temporalCog.setRecipe(recipeTempCog.toArray(new ItemStack[9]));
-        voidShard.setRecipe(recipeVoidShard.toArray(new ItemStack[9]));
+        neuralNex.setRelics(relicsNeuralNex);
+        temporalCog.setRelics(relicsTempCog);
+        voidShard.setRelics(relicsVoidShard);
 
         neuralNex.register(plugin);
         temporalCog.register(plugin);
