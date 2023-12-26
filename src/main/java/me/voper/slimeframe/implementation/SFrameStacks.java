@@ -1042,6 +1042,85 @@ public final class SFrameStacks {
             Lore.production(6)
     );
 
+    public static final SlimefunItemStack PUTRIFIER = SFrameTheme.sfStackFromTheme(
+            "WF_PUTRIFIER",
+            Material.SOUL_SAND,
+            MACHINES_THEME,
+            Colors.BROWN + "Putrifier",
+            "This machine is capable",
+            "of putrefying items",
+            "",
+            LoreBuilder.machine(MachineTier.GOOD, MachineType.MACHINE),
+            Lore.powerPerSecond(128),
+            Lore.speed(1)
+    );
+
+    public static final SlimefunItemStack ADV_PUTRIFIER = SFrameTheme.sfStackFromTheme(
+            "WF_PUTRIFIER_2",
+            Material.SOUL_SOIL,
+            MACHINES_THEME,
+            Colors.BROWN + "Advanced Putrifier",
+            "An improved version of",
+            "the Putrifier",
+            "",
+            LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
+            Lore.powerPerSecond(256),
+            Lore.speed(5)
+    );
+
+    public static final SlimefunItemStack PRIME_PUTRIFIER = SFrameTheme.sfStackFromTheme(
+            "WF_PUTRIFIER_3",
+            Material.MUDDY_MANGROVE_ROOTS,
+            MACHINES_THEME,
+            ChatColor.GOLD + "Prime " + Colors.BROWN + "Putrifier",
+            "A cutting-edge version of the",
+            "Putrifier for anyone who",
+            "needs a massive production",
+            "",
+            LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
+            Lore.powerPerSecond(512),
+            Lore.speed(30)
+    );
+
+    public static final SlimefunItemStack TERRACOTTA_GENERATOR = SFrameTheme.sfStackFromTheme(
+            "WF_TERRACOTTA_GEN",
+            Material.LIGHT_BLUE_TERRACOTTA,
+            MACHINES_THEME.withNameColor(ChatColor.BLUE),
+            "Terracotta Generator",
+            "A machine that can generate",
+            "any non-glazed terracotta",
+            "",
+            LoreBuilder.machine(MachineTier.GOOD, MachineType.MACHINE),
+            Lore.powerPerSecond(128),
+            Lore.speed(1)
+    );
+
+    public static final SlimefunItemStack ADV_TERRACOTTA_GEN = SFrameTheme.sfStackFromTheme(
+            "WF_TERRACOTTA_GEN_2",
+            Material.BLUE_TERRACOTTA,
+            MACHINES_THEME.withNameColor(ChatColor.DARK_BLUE),
+            "Advanced Terracotta Generator",
+            "An improved version of the",
+            "Terracotta Generator",
+            "",
+            LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
+            Lore.powerPerSecond(256),
+            Lore.speed(5)
+    );
+
+    public static final SlimefunItemStack PRIME_TERRACOTTA_GEN = SFrameTheme.sfStackFromTheme(
+            "WF_TERRACOTTA_GEN_3",
+            Material.PURPLE_TERRACOTTA,
+            MACHINES_THEME,
+            ChatColor.GOLD + "Prime " + ChatColor.LIGHT_PURPLE + "Terracotta Generator",
+            "The best version of the",
+            "Terracotta Generator",
+            "",
+            LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
+            Lore.powerPerSecond(512),
+            Lore.speed(30)
+    );
+
     // Energy Generators
     public static final SlimefunItemStack GRAVITECH_ENERCELL = SFrameTheme.sfStackFromTheme(
             "WF_GRAVITECH_ENERCELL",
@@ -1289,6 +1368,30 @@ public final class SFrameStacks {
             new SlimefunItemStack[]{PrimeComponents.createControlUnit(PRIME_TREE_PEELER), PrimeComponents.createControlUnit(PRIME_GLASS_GENERATOR), SlimefunItems.REINFORCED_PLATE},
             new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_FLOWER_GENERATOR), SlimefunItems.STAFF_ELEMENTAL},
             PrimeComponents.createCoreModule(PRIME_CHUNK_EATER)
+    );
+
+    public static final RelicItemStack MESO_C1 = new RelicItemStack(
+            "Meso C1",
+            Relic.Era.MESO,
+            new SlimefunItemStack[]{PrimeComponents.createControlUnit(PRIME_CRYOTIC_EXTRACTOR), PrimeComponents.createControlUnit(PRIME_PUTRIFIER), PrimeComponents.createControlUnit(PRIME_TERRACOTTA_GEN)},
+            new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_SULFATE_PRODUCER), SlimefunItems.ARMOR_AUTO_CRAFTER},
+            PrimeComponents.createCoreModule(PRIME_CONCRETE_GENERATOR)
+    );
+
+    public static final RelicItemStack NEO_P1 = new RelicItemStack(
+            "Neo P1",
+            Relic.Era.NEO,
+            new SlimefunItemStack[]{PrimeComponents.createControlUnit(PRIME_CONCRETE_GENERATOR), PrimeComponents.createControlUnit(PRIME_SULFATE_PRODUCER), SlimefunItems.CHARGING_BENCH},
+            new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_TERRACOTTA_GEN), SlimefunItems.LAVA_GENERATOR_2},
+            PrimeComponents.createCoreModule(PRIME_PUTRIFIER)
+    );
+
+    public static final RelicItemStack AXI_T1 = new RelicItemStack(
+            "Axi T1",
+            Relic.Era.AXI,
+            new SlimefunItemStack[]{UtilsComponents.createVoidShard(PRIME_NOSAM_PICK), PrimeComponents.createControlUnit(ASTRAL_PRIME_GENERATOR), SlimefunItems.EARTH_RUNE},
+            new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_PUTRIFIER), SlimefunItems.ARMORED_JETPACK},
+            PrimeComponents.createCoreModule(PRIME_TERRACOTTA_GEN)
     );
 
     static {

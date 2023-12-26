@@ -65,14 +65,17 @@ public final class SFrameItems {
         Relic.create(SFrameStacks.MESO_B1).register(plugin);
         Relic.create(SFrameStacks.MESO_W1).register(plugin);
         Relic.create(SFrameStacks.MESO_S1).register(plugin);
+        Relic.create(SFrameStacks.MESO_C1).register(plugin);
 
         Relic.create(SFrameStacks.NEO_A1).register(plugin);
         Relic.create(SFrameStacks.NEO_C1).register(plugin);
         Relic.create(SFrameStacks.NEO_D1).register(plugin);
+        Relic.create(SFrameStacks.NEO_P1).register(plugin);
 
         Relic.create(SFrameStacks.AXI_F1).register(plugin);
         Relic.create(SFrameStacks.AXI_N1).register(plugin);
         Relic.create(SFrameStacks.AXI_G1).register(plugin);
+        Relic.create(SFrameStacks.AXI_T1).register(plugin);
     }
 
     private void registerResources() {
@@ -348,6 +351,24 @@ public final class SFrameItems {
                 PrimeComponents.createControlUnit(SFrameStacks.PRIME_GLASS_GENERATOR), PrimeComponents.createCoreModule(SFrameStacks.PRIME_GLASS_GENERATOR), PrimeComponents.createPowerCell(SFrameStacks.PRIME_GLASS_GENERATOR)
         }).setProduction(6).setProcessingSpeed(30).setEnergyPerTick(512).register(plugin);
 
+        new Putrifier(SFrameStacks.PUTRIFIER, new ItemStack[]{
+                SFrameStacks.PYROTIC_ALLOY, SFrameStacks.BOOSTED_TELLURIUM, SFrameStacks.PYROTIC_ALLOY,
+                XMaterial.SOUL_SOIL.parseItem(), XMaterial.SOUL_SAND.parseItem(), XMaterial.SOUL_SOIL.parseItem(),
+                SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.BIG_CAPACITOR, SlimefunItems.ELECTRIC_MOTOR
+        }).setEnergyPerTick(128).register(plugin);
+
+        new Putrifier(SFrameStacks.ADV_PUTRIFIER, new ItemStack[]{
+                SFrameStacks.RUBEDO, SFrameStacks.BOOSTED_TELLURIUM, SFrameStacks.RUBEDO,
+                getAlloyPlate(SFrameStacks.VENERDO_ALLOY), SFrameStacks.PUTRIFIER, getAlloyPlate(SFrameStacks.VENERDO_ALLOY),
+                SFrameStacks.CUBIC_DIODES, SFrameStacks.CONTROL_MODULE, SFrameStacks.CUBIC_DIODES
+        }).setProduction(5).setProcessingSpeed(5).setEnergyPerTick(256).register(plugin);
+
+        new Putrifier(SFrameStacks.PRIME_PUTRIFIER, new ItemStack[]{
+                SFrameStacks.BOOSTED_TELLURIUM, SFrameStacks.OROKIN_CELL, SFrameStacks.BOOSTED_TELLURIUM,
+                getAlloyPlate(SFrameStacks.HESPAZYM_ALLOY), SFrameStacks.ADV_PUTRIFIER, getAlloyPlate(SFrameStacks.HESPAZYM_ALLOY),
+                PrimeComponents.createControlUnit(SFrameStacks.PRIME_PUTRIFIER), PrimeComponents.createCoreModule(SFrameStacks.PRIME_PUTRIFIER), PrimeComponents.createPowerCell(SFrameStacks.PRIME_PUTRIFIER)
+        }).setProduction(15).setProcessingSpeed(30).setEnergyPerTick(512).register(plugin);
+
         new Recycler(Groups.MACHINES, SFrameStacks.RECYCLER, Foundry.RECIPE_TYPE, new ItemStack[]{
                 SlimefunItems.REINFORCED_ALLOY_INGOT, XMaterial.PISTON.parseItem(), SlimefunItems.REINFORCED_ALLOY_INGOT,
                 SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.ELECTRIC_FURNACE_3, SlimefunItems.REINFORCED_ALLOY_INGOT,
@@ -377,6 +398,24 @@ public final class SFrameItems {
                 SFrameStacks.DILUTED_THERMIA, XMaterial.NETHER_WART_BLOCK.parseItem(), SFrameStacks.DILUTED_THERMIA,
                 SFrameStacks.CUBIC_DIODES, SFrameStacks.CONTROL_MODULE, SFrameStacks.CUBIC_DIODES
         }).setEnergyPerTick(512).register(plugin);
+
+        new TerracottaGenerator(SFrameStacks.TERRACOTTA_GENERATOR, new ItemStack[]{
+                SFrameStacks.ADRAMAL_ALLOY, SlimefunItems.RAINBOW_GLAZED_TERRACOTTA, SFrameStacks.ADRAMAL_ALLOY,
+                SlimefunItems.ELECTRIC_MOTOR, XMaterial.TERRACOTTA.parseItem(), SlimefunItems.ELECTRIC_MOTOR,
+                SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.MEDIUM_CAPACITOR, SlimefunItems.ELECTRIC_MOTOR
+        }).setEnergyPerTick(128).register(plugin);
+
+        new TerracottaGenerator(SFrameStacks.ADV_TERRACOTTA_GEN, new ItemStack[]{
+                SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_PLATE,
+                getAlloyPlate(SFrameStacks.TRAVOCYTE_ALLOY), SFrameStacks.TERRACOTTA_GENERATOR, getAlloyPlate(SFrameStacks.TRAVOCYTE_ALLOY),
+                SFrameStacks.CUBIC_DIODES, SFrameStacks.CONTROL_MODULE, SFrameStacks.CUBIC_DIODES
+        }).setProcessingSpeed(5).setEnergyPerTick(256).register(plugin);
+
+        new TerracottaGenerator(SFrameStacks.PRIME_TERRACOTTA_GEN, new ItemStack[]{
+                SFrameStacks.RUBEDO, SFrameStacks.OROKIN_CELL, SFrameStacks.RUBEDO,
+                getAlloyPlate(SFrameStacks.AUROXIUM_ALLOY), SFrameStacks.ADV_TERRACOTTA_GEN, getAlloyPlate(SFrameStacks.AUROXIUM_ALLOY),
+                PrimeComponents.createControlUnit(SFrameStacks.PRIME_TERRACOTTA_GEN), PrimeComponents.createCoreModule(SFrameStacks.PRIME_TERRACOTTA_GEN), PrimeComponents.createPowerCell(SFrameStacks.PRIME_TERRACOTTA_GEN)
+        }).setProcessingSpeed(30).setEnergyPerTick(512).register(plugin);
 
         new ThermiaExtractor(Groups.MACHINES, SFrameStacks.THERMIA_EXTRACTOR, Foundry.RECIPE_TYPE, new ItemStack[]{
                 SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.FLUID_PUMP, SlimefunItems.REINFORCED_ALLOY_INGOT,
@@ -591,6 +630,8 @@ public final class SFrameItems {
         new PrimeComponents(SFrameStacks.PRIME_DUST_GENERATOR);
         new PrimeComponents(SFrameStacks.PRIME_CHUNK_EATER);
         new PrimeComponents(SFrameStacks.PRIME_GLASS_GENERATOR);
+        new PrimeComponents(SFrameStacks.PRIME_PUTRIFIER);
+        new PrimeComponents(SFrameStacks.PRIME_TERRACOTTA_GEN);
         PrimeComponents.registerAll(plugin);
 
         new UtilsComponents(SFrameStacks.PRIME_NOSAM_PICK);
