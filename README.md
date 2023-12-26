@@ -37,7 +37,7 @@ SlimeFrame is a Slimefun addon inspired by Warframe that adds new machines, ener
 
 - This addon works on **Spigot**/**Paper** servers as well as on their forks, such as **Purpur**.
 - **Java Version:** 16+
-- **Minecraft Version:** 1.19+ (_it might work on servers that support lower versions as long as 1.19 is supported too_)
+- **Minecraft Version:** 1.19+
 - **Slimefun Version:** RC-34+
 
 ## Commands
@@ -98,7 +98,10 @@ A new machine that can automatically trade with villagers. To make it work, you 
 ## Credits
 
 Thanks to <a href="https://minecraft-heads.com/">Minecraft Heads</a> for the heads the addon uses.
-A big thanks to all the people that helped me in the programming channel in the Slimefun Discord Server.
+
+[![](https://minecraft-heads.com/images/banners/minecraft-heads_fullbanner_468x60.png)](https://minecraft-heads.com/)
+
+Also a big thanks to all the people that helped me in the programming channel in the Slimefun Discord Server.
 Thanks to the server **AbsolutGG** for letting me test the addon.
 
 ## Donate
