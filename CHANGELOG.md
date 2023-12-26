@@ -1,3 +1,20 @@
+# [1.5.0](https://github.com/VoperAD/SlimeFrame/compare/v1.4.2...v1.5.0) (2023-12-26)
+
+
+### Bug Fixes
+
+* use the correct probability to get special ores with nosam pickaxes ([651c372](https://github.com/VoperAD/SlimeFrame/commit/651c372eb71a25840eaa06597be5505927b0d350))
+* use the ItemStack clone ([cfab04e](https://github.com/VoperAD/SlimeFrame/commit/cfab04e3641688d21b12a528c6382a01fc4ab6ee))
+
+
+### Features
+
+* **machines:** add and register new relics and machines (Petrifier and Terracotta Generator) ([bfd8760](https://github.com/VoperAD/SlimeFrame/commit/bfd8760a70e8f0644376f824f779ed8b44fbc872))
+* **machines:** add Putrifier ([8b64f09](https://github.com/VoperAD/SlimeFrame/commit/8b64f09c5aff0490e352e347dcdd67753cfb0124))
+* **machines:** add Terracotta Generator ([17b6e22](https://github.com/VoperAD/SlimeFrame/commit/17b6e228d31bd752c5fbfb14ad0c64a2ec4a678a))
+
+
+
 ## [1.4.2](https://github.com/VoperAD/SlimeFrame/compare/v1.4.1...v1.4.2) (2023-12-22)
 
 
@@ -37,15 +54,6 @@
 ### Bug Fixes
 
 * **workflow:** merge two release commits into one ([d3e1e63](https://github.com/VoperAD/SlimeFrame/commit/d3e1e63b0252886714fcfec383e478d0f88067d8))
-
-
-
-## [1.3.1](https://github.com/VoperAD/SlimeFrame/compare/v1.3.0...v1.3.1) (2023-11-18)
-
-
-### Bug Fixes
-
-* add a 'v' to the artifact name in the final step of Release.yml ([f3a8794](https://github.com/VoperAD/SlimeFrame/commit/f3a8794098fa5f3ac6d24ce7f1719445f8e9731c))
 
 
 
