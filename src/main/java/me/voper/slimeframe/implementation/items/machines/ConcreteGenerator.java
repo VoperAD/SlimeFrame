@@ -85,8 +85,9 @@ public class ConcreteGenerator extends AbstractSelectorMachine implements Recipe
         for (ItemStack itemStack: CONCRETE_LIST) {
             if (!itemStack.getType().name().endsWith("_CONCRETE")) continue;
             displayRecipes.add(recipes.get(0).getInput()[0]);
-            itemStack.setAmount(outputAmount * production);
-            displayRecipes.add(itemStack);
+            ItemStack clone = itemStack.clone();
+            clone.setAmount(outputAmount * production);
+            displayRecipes.add(clone);
             displayRecipes.add(recipes.get(0).getInput()[1]);
             displayRecipes.add(null);
         }
