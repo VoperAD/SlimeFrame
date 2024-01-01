@@ -1,3 +1,12 @@
+## [1.5.1](https://github.com/VoperAD/SlimeFrame/compare/v1.5.0...v1.5.1) (2024-01-01)
+
+
+### Bug Fixes
+
+* **relics:** add the concrete generator power cell as a relic reward ([96e5bd7](https://github.com/VoperAD/SlimeFrame/commit/96e5bd7c525979d74c7f316af87b383e9e94e57a))
+
+
+
 # [1.5.0](https://github.com/VoperAD/SlimeFrame/compare/v1.4.2...v1.5.0) (2023-12-26)
 
 
@@ -45,15 +54,6 @@
 ### Features
 
 * **updater:** add logic for upgrading to major versions ([ba022c9](https://github.com/VoperAD/SlimeFrame/commit/ba022c96677341cae86d5157cfe4d872e0feef9d))
-
-
-
-## [1.3.2](https://github.com/VoperAD/SlimeFrame/compare/v1.3.1...v1.3.2) (2023-11-18)
-
-
-### Bug Fixes
-
-* **workflow:** merge two release commits into one ([d3e1e63](https://github.com/VoperAD/SlimeFrame/commit/d3e1e63b0252886714fcfec383e478d0f88067d8))
 
 
 
