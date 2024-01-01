@@ -1390,7 +1390,7 @@ public final class SFrameStacks {
             "Axi T1",
             Relic.Era.AXI,
             new SlimefunItemStack[]{UtilsComponents.createVoidShard(PRIME_NOSAM_PICK), PrimeComponents.createControlUnit(ASTRAL_PRIME_GENERATOR), SlimefunItems.EARTH_RUNE},
-            new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_PUTRIFIER), SlimefunItems.ARMORED_JETPACK},
+            new SlimefunItemStack[]{PrimeComponents.createPowerCell(PRIME_PUTRIFIER), PrimeComponents.createPowerCell(PRIME_CONCRETE_GENERATOR)},
             PrimeComponents.createCoreModule(PRIME_TERRACOTTA_GEN)
     );
 
