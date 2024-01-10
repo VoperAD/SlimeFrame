@@ -1,11 +1,13 @@
 package me.voper.slimeframe.implementation.groups;
 
+import org.bukkit.Material;
+
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.utils.Colors;
 import me.voper.slimeframe.utils.HeadTextures;
 import me.voper.slimeframe.utils.Keys;
-import org.bukkit.Material;
 
 public class Groups {
 
@@ -13,7 +15,7 @@ public class Groups {
 
     // Title of each group
     public static final String RESOURCES_NAME = Colors.SILVER + "<" + Colors.CRAYOLA_BLUE + "SlimeFrame Resources" + Colors.SILVER + ">";
-    public static final String MACHINES_NAME =  Colors.SILVER + "<" + Colors.CRAYOLA_BLUE + "SlimeFrame Machines" + Colors.SILVER + ">";
+    public static final String MACHINES_NAME = Colors.SILVER + "<" + Colors.CRAYOLA_BLUE + "SlimeFrame Machines" + Colors.SILVER + ">";
     public static final String GENERATORS_NAME = Colors.SILVER + "<" + Colors.CRAYOLA_BLUE + "SlimeFrame Generators" + Colors.SILVER + ">";
     public static final String UTILS_AND_TOOLS_NAME = Colors.SILVER + "<" + Colors.CRAYOLA_BLUE + "SlimeFrame Utils & Tools" + Colors.SILVER + ">";
     public static final String GEAR_NAME = Colors.SILVER + "<" + Colors.CRAYOLA_BLUE + "SlimeFrame Gear" + Colors.SILVER + ">";

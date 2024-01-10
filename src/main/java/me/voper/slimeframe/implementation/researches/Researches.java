@@ -1,8 +1,16 @@
 package me.voper.slimeframe.implementation.researches;
 
+import java.util.List;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import org.bukkit.NamespacedKey;
+import org.bukkit.inventory.ItemStack;
+
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.researches.Research;
+
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.core.managers.SettingsManager;
 import me.voper.slimeframe.implementation.SFrameItems;
@@ -10,11 +18,6 @@ import me.voper.slimeframe.implementation.SFrameStacks;
 import me.voper.slimeframe.implementation.groups.Groups;
 import me.voper.slimeframe.implementation.items.resources.SpecialOre;
 import me.voper.slimeframe.utils.Keys;
-import org.bukkit.NamespacedKey;
-import org.bukkit.inventory.ItemStack;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.List;
 
 @ParametersAreNonnullByDefault
 public final class Researches {
@@ -56,7 +59,7 @@ public final class Researches {
         create(Keys.MULTIBLOCKS_RESEARCH, 13, "Comprehending the complexities of SlimeFrame Multiblocks", 30, SFrameStacks.FOUNDRY);
         create(Keys.CONDENSED_PLATE_RESEARCH, 14, "Unlocking the secrets of Condensed Plates", 40, SFrameStacks.CONDENSED_PLATE);
 
-        create(Keys.GENERAL_RESOURCES_RESEARCH, 15 , "General SlimeFrame resources", 25,
+        create(Keys.GENERAL_RESOURCES_RESEARCH, 15, "General SlimeFrame resources", 25,
                 SFrameStacks.CRYOTIC, SFrameStacks.COOLANT_CANISTER, SFrameStacks.TELLURIUM_FRAGMENT, SFrameStacks.TELLURIUM,
                 SFrameStacks.DILUTED_THERMIA, SFrameStacks.RUBEDO, SFrameStacks.ARGON_CRYSTAL, SFrameStacks.CUBIC_DIODES,
                 SFrameStacks.PLASTIDS, SFrameStacks.CONTROL_MODULE, SFrameStacks.GALLIUM, SFrameStacks.SALVAGE,
@@ -66,7 +69,7 @@ public final class Researches {
     }
 
     private static void create(NamespacedKey key, int id, String name, int cost, ItemStack... itemStacks) {
-         new Research(key, FIRST_RESEARCH_ID + id, name, cost).addItems(itemStacks).register();
+        new Research(key, FIRST_RESEARCH_ID + id, name, cost).addItems(itemStacks).register();
     }
 
     private static void create(NamespacedKey key, int id, String name, int cost, SlimefunItem... items) {

@@ -1,7 +1,18 @@
 package me.voper.slimeframe;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.annotation.Nonnull;
+
+import org.bukkit.Bukkit;
+import org.bukkit.block.Block;
+import org.bukkit.configuration.serialization.ConfigurationSerialization;
+import org.bukkit.plugin.java.JavaPlugin;
+
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+
 import me.voper.slimeframe.core.datatypes.MerchantRecipeListDataType;
 import me.voper.slimeframe.core.managers.CommandsManager;
 import me.voper.slimeframe.core.managers.RelicInventoryManager;
@@ -13,18 +24,11 @@ import me.voper.slimeframe.implementation.researches.Researches;
 import me.voper.slimeframe.implementation.tasks.ArmorMonitorTask;
 import me.voper.slimeframe.implementation.tasks.CoolantRaknoidsTask;
 import me.voper.slimeframe.utils.AutoUpdater;
+
 import org.bstats.bukkit.Metrics;
-import org.bukkit.Bukkit;
-import org.bukkit.block.Block;
-import org.bukkit.configuration.serialization.ConfigurationSerialization;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.geysermc.geyser.api.GeyserApi;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
-
-import javax.annotation.Nonnull;
-import java.util.HashSet;
-import java.util.Set;
 
 public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
 
@@ -138,8 +142,12 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
         return instance.supportedPluginManager;
     }
 
-    public static Set<SlimefunItem> getFreezingItems() { return instance.freezingItems; }
+    public static Set<SlimefunItem> getFreezingItems() {
+        return instance.freezingItems;
+    }
 
-    public static Set<Block> getPlacedBlocks() { return instance.placedBlocks; }
+    public static Set<Block> getPlacedBlocks() {
+        return instance.placedBlocks;
+    }
 
 }

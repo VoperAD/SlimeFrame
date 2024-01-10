@@ -1,13 +1,14 @@
 package me.voper.slimeframe.api.events;
 
-import me.voper.slimeframe.implementation.items.relics.Relic;
+import javax.annotation.Nonnull;
+
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.inventory.ItemStack;
 
-import javax.annotation.Nonnull;
+import me.voper.slimeframe.implementation.items.relics.Relic;
 
 /**
  * Called when a {@link Player} refines a {@link me.voper.slimeframe.implementation.items.relics.Relic}.

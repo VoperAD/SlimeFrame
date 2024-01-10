@@ -1,12 +1,12 @@
 package me.voper.slimeframe.api.events;
 
+import javax.annotation.Nonnull;
+
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.inventory.ItemStack;
-
-import javax.annotation.Nonnull;
 
 /**
  * Called when a {@link Player} opens a {@link me.voper.slimeframe.implementation.items.relics.Relic}.
