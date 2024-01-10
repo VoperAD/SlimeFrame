@@ -15,6 +15,8 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import me.voper.slimeframe.SlimeFrame;
+import me.voper.slimeframe.api.events.PlayerOpenRelicEvent;
+import me.voper.slimeframe.api.events.PlayerRefineRelicEvent;
 import me.voper.slimeframe.core.managers.SettingsManager;
 import me.voper.slimeframe.implementation.groups.Groups;
 import me.voper.slimeframe.utils.ChatUtils;
@@ -24,6 +26,7 @@ import me.voper.slimeframe.utils.Utils;
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.math3.distribution.EnumeratedDistribution;
 import org.apache.commons.math3.util.Pair;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -92,10 +95,10 @@ public class Relic extends SlimefunItem implements NotPlaceable {
     }
 
     protected ItemUseHandler onRelicUse() {
-        return event -> {
-            event.cancel();
-            Player p = event.getPlayer();
-            ItemStack relic = event.getItem();
+        return e -> {
+            e.cancel();
+            Player p = e.getPlayer();
+            ItemStack relic = e.getItem();
 
             if (getReactants(relic) != 10) {
                 ChatUtils.sendMessage(p, SlimeFrame.getSettingsManager().getStringList(SettingsManager.ConfigField.INSUFFICIENT_REACTANTS));
@@ -106,25 +109,35 @@ public class Relic extends SlimefunItem implements NotPlaceable {
 
             int voidTraces = PersistentDataAPI.getInt(p, Keys.VOID_TRACES_OWNED, 0);
             int voidTracesReward = ThreadLocalRandom.current().nextInt(20) + 1;
-            voidTraces += voidTracesReward;
+            SlimefunItemStack reward = dropDistribution.sample();
+
+            PlayerOpenRelicEvent relicEvent = new PlayerOpenRelicEvent(p, reward, relic, voidTracesReward);
+            Bukkit.getPluginManager().callEvent(relicEvent);
+            if (relicEvent.isCancelled()) return;
+
+            PersistentDataAPI.set(p, Keys.VOID_TRACES_OWNED, PersistentDataType.INTEGER, voidTraces + relicEvent.getVoidTracesReward());
+
+            ItemUtils.consumeItem(relicEvent.getRelic(), false);
+
+            HashMap<Integer, ItemStack> result = p.getInventory().addItem(relicEvent.getReward());
+            if (!result.isEmpty()) {
+                p.getWorld().dropItemNaturally(p.getLocation(), relicEvent.getReward());
+            }
 
             ChatUtils.sendMessage(p, ChatColor.GREEN + "Relic opened!");
             ChatUtils.sendMessage(p, ChatColor.GREEN + "You have just received " + ChatColor.WHITE + voidTracesReward + ChatColor.GREEN + " void traces for opening this relic!");
 
-            PersistentDataAPI.set(p, Keys.VOID_TRACES_OWNED, PersistentDataType.INTEGER, voidTraces);
-
-            SlimefunItemStack reward = dropDistribution.sample();
-            ItemUtils.consumeItem(relic, false);
-
-            HashMap<Integer, ItemStack> result = p.getInventory().addItem(reward);
-            if (!result.isEmpty()) {
-                p.getWorld().dropItemNaturally(p.getLocation(), reward);
-            }
         };
     }
 
     @ParametersAreNonnullByDefault
     public static void refineRelic(Player p, ItemStack relic, Refinement refinement) {
+        PlayerRefineRelicEvent refineEvent = new PlayerRefineRelicEvent(p, relic, refinement);
+        Bukkit.getPluginManager().callEvent(refineEvent);
+        if (refineEvent.isCancelled()) return;
+
+        refinement = refineEvent.getNewRefinement();
+
         int tracesRequired = refinement.getTracesRequired() - getRefinement(relic).getTracesRequired();
         if (tracesRequired <= 0) {
             ChatUtils.sendMessage(p, ChatColor.RED + "You can not refine your relic to a lower refinement level");
