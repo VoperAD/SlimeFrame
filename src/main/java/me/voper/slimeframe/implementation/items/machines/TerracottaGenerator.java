@@ -25,6 +25,7 @@ public class TerracottaGenerator extends AbstractSelectorMachine implements Reci
     private static final String BLOCK_KEY = "terracota_selector";
     private static final List<ItemStack> TERRACOTTA_LIST = List.of(
             MachineUtils.SELECTOR,
+            new ItemStack(Material.TERRACOTTA),
             new ItemStack(Material.WHITE_TERRACOTTA),
             new ItemStack(Material.ORANGE_TERRACOTTA),
             new ItemStack(Material.MAGENTA_TERRACOTTA),
@@ -85,7 +86,7 @@ public class TerracottaGenerator extends AbstractSelectorMachine implements Reci
     public List<ItemStack> getDisplayRecipes() {
         final List<ItemStack> displayRecipes = new ArrayList<>();
         for (ItemStack itemStack : TERRACOTTA_LIST) {
-            if (!itemStack.getType().name().endsWith("_TERRACOTTA")) continue;
+            if (!itemStack.getType().name().endsWith("TERRACOTTA")) continue;
             displayRecipes.add(recipes.get(0).getInput()[0]);
             ItemStack clone = itemStack.clone();
             clone.setAmount(outputAmount * production);
