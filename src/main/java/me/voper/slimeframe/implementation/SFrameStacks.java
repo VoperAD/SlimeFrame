@@ -133,7 +133,7 @@ public final class SFrameStacks {
             "reinforced deepslates and ",
             "budding amethysts",
             "",
-            Lore.usesLeft(32)
+            Lore.usesLeft(64)
     );
 
     public static final SlimefunItemStack PRIME_OROKIN_WAND = SFrameTheme.sfStackFromTheme(
