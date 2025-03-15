@@ -13,6 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spigot-api.version>1.19-R0.1-SNAPSHOT</spigot-api.version>
         <java.version>16</java.version>
+        <Slimefun4.version>experimental-3ea21da4fe-1</Slimefun4.version>
     </properties>
 
     <repositories>
@@ -154,7 +155,7 @@
         <dependency>
             <groupId>com.github.Slimefun</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-34</version>
+            <version>${Slimefun4.version}</version>
             <scope>provided</scope>
         </dependency>
 
