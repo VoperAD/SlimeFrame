@@ -43,7 +43,7 @@ public class TelluriumFragmentsSynthesizer extends AbstractMachine {
         final BlockPosition blockPosition = new BlockPosition(b);
         int progress = PROGRESS_MAP.getOrDefault(blockPosition, 0);
         if (progress >= TIME) {
-            ItemStack fragment = SFrameStacks.TELLURIUM_FRAGMENT.clone();
+            ItemStack fragment = SFrameStacks.TELLURIUM_FRAGMENT.item();
 
             if (menu.fits(fragment, getOutputSlots())) {
                 menu.pushItem(fragment, getOutputSlots());
@@ -57,7 +57,7 @@ public class TelluriumFragmentsSynthesizer extends AbstractMachine {
         }
 
         PROGRESS_MAP.put(blockPosition, ++progress);
-        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), new CustomItemStack(Material.CONDUIT, ChatColor.RED + "Synthesizing..."));
+        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), CustomItemStack.create(Material.CONDUIT, ChatColor.RED + "Synthesizing..."));
         return true;
     }
 

@@ -66,7 +66,7 @@ public class CryoticExtractor extends AbstractMachine {
         int progress = PROGRESS_MAP.getOrDefault(blockPosition, 0);
         if (progress >= TIME) {
             int cryoticAmount = VALID_BIOMES.get(b.getBiome());
-            ItemStack cryotic = new SlimefunItemStack(SFrameStacks.CRYOTIC, cryoticAmount);
+            ItemStack cryotic = new SlimefunItemStack(SFrameStacks.CRYOTIC, cryoticAmount).item();
 
             if (menu.fits(cryotic, getOutputSlots())) {
                 menu.pushItem(cryotic, getOutputSlots());
@@ -93,7 +93,7 @@ public class CryoticExtractor extends AbstractMachine {
     @Override
     protected void onCraftConditionsNotMet(BlockMenu menu) {
         MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(),
-                new CustomItemStack(Material.BARRIER, ChatColor.RED + "There isn't any cryotic in this Biome!",
+                CustomItemStack.create(Material.BARRIER, ChatColor.RED + "There isn't any cryotic in this Biome!",
                         ChatColor.WHITE + "Valid Biomes:",
                         ChatColor.BLUE + "Snowy Taiga",
                         ChatColor.BLUE + "Snowy Plains",
@@ -129,7 +129,7 @@ public class CryoticExtractor extends AbstractMachine {
     }
 
     private void updateProgress(BlockMenu menu, int progress) {
-        ChestMenuUtils.updateProgressbar(menu, getStatusSlot(), TIME - progress, TIME, new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, ChatColor.GREEN + "Extracting..."));
+        ChestMenuUtils.updateProgressbar(menu, getStatusSlot(), TIME - progress, TIME, CustomItemStack.create(Material.GREEN_STAINED_GLASS_PANE, ChatColor.GREEN + "Extracting..."));
     }
 
 }

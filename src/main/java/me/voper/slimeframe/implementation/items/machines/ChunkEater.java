@@ -95,7 +95,7 @@ public class ChunkEater extends AbstractMachine {
                     ItemStack blockItem = new ItemStack(block.getType());
                     if (menu.fits(blockItem, getOutputSlots())) {
                         menu.pushItem(blockItem, getOutputSlots());
-                        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), new CustomItemStack(Material.TNT, ChatColor.GREEN + "Working..."));
+                        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), CustomItemStack.create(Material.TNT, ChatColor.GREEN + "Working..."));
                     } else {
                         MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), MachineUtils.NO_SPACE);
                     }
@@ -113,7 +113,7 @@ public class ChunkEater extends AbstractMachine {
             return true;
         }
 
-        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), new CustomItemStack(Material.TNT, ChatColor.GREEN + "Working..."));
+        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), CustomItemStack.create(Material.TNT, ChatColor.GREEN + "Working..."));
         PROGRESS_MAP.put(blockPosition, ++progress);
         ITERATOR_MAP.put(blockPosition, iterator);
         return true;

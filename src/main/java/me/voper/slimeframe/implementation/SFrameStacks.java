@@ -50,7 +50,7 @@ public final class SFrameStacks {
 
     @Nonnull
     public static ItemStack enchantedItem(@Nonnull Material m) {
-        return new CustomItemStack(m, (meta) -> {
+        return CustomItemStack.create(m, (meta) -> {
             meta.addEnchant(Enchantment.LUCK, 1, false);
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         });
@@ -78,10 +78,10 @@ public final class SFrameStacks {
         return createPotion(type, Material.POTION);
     }
 
-    public static final RandomItemStacks<RelicItemStack> RANDOM_LITH_RELICS = new RandomItemStacks<>();
-    public static final RandomItemStacks<RelicItemStack> RANDOM_MESO_RELICS = new RandomItemStacks<>();
-    public static final RandomItemStacks<RelicItemStack> RANDOM_NEO_RELICS = new RandomItemStacks<>();
-    public static final RandomItemStacks<RelicItemStack> RANDOM_AXI_RELICS = new RandomItemStacks<>();
+    public static final RandomItemStacks RANDOM_LITH_RELICS = new RandomItemStacks();
+    public static final RandomItemStacks RANDOM_MESO_RELICS = new RandomItemStacks();
+    public static final RandomItemStacks RANDOM_NEO_RELICS = new RandomItemStacks();
+    public static final RandomItemStacks RANDOM_AXI_RELICS = new RandomItemStacks();
 
     // ---- Utils and Tools ----
 
@@ -412,7 +412,7 @@ public final class SFrameStacks {
 
     public static final SlimefunItemStack TELLURIUM_FRAGMENT = SFrameTheme.sfStackFromTheme(
             "WF_TELLURIUM_FRAGMENT",
-            new CustomItemStack(Material.DISC_FRAGMENT_5, (meta) -> meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES)),
+            CustomItemStack.create(Material.DISC_FRAGMENT_5, (meta) -> meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES)),
             RESOURCES_THEME.withNameColor(ChatColor.LIGHT_PURPLE),
             "Tellurium Fragment",
             "A synthesized fragment of Tellurium"
@@ -1403,10 +1403,10 @@ public final class SFrameStacks {
                 if (declaredField.getType() != RelicItemStack.class) continue;
                 RelicItemStack relicItemStack = (RelicItemStack) declaredField.get(null);
                 switch (relicItemStack.getRelicEra()) {
-                    case LITH -> RANDOM_LITH_RELICS.add(relicItemStack);
-                    case MESO -> RANDOM_MESO_RELICS.add(relicItemStack);
-                    case NEO -> RANDOM_NEO_RELICS.add(relicItemStack);
-                    default -> RANDOM_AXI_RELICS.add(relicItemStack);
+                    case LITH -> RANDOM_LITH_RELICS.add(relicItemStack.item());
+                    case MESO -> RANDOM_MESO_RELICS.add(relicItemStack.item());
+                    case NEO -> RANDOM_NEO_RELICS.add(relicItemStack.item());
+                    default -> RANDOM_AXI_RELICS.add(relicItemStack.item());
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();

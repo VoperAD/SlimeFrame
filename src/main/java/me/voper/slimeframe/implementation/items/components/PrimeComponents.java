@@ -162,17 +162,17 @@ public class PrimeComponents {
             RelicItemStack relic = (RelicItemStack) field.get(null);
 
             for (SlimefunItemStack common : relic.getCommonDrops()) {
-                if (!SlimefunUtils.isItemSimilar(components.getControlUnit(), common, true)) continue;
-                relicsControlUnit.add(relic);
+                if (!SlimefunUtils.isItemSimilar(components.getControlUnit().item(), common.item(), true)) continue;
+                relicsControlUnit.add(relic.item());
             }
 
             for (SlimefunItemStack uncommon : relic.getUncommonDrops()) {
-                if (!SlimefunUtils.isItemSimilar(components.getPowerCell(), uncommon, true)) continue;
-                relicsPowerCell.add(relic);
+                if (!SlimefunUtils.isItemSimilar(components.getPowerCell().item(), uncommon.item(), true)) continue;
+                relicsPowerCell.add(relic.item());
             }
 
-            if (SlimefunUtils.isItemSimilar(components.getCoreModule(), relic.getRareDrop(), true)) {
-                relicsCoreModule.add(relic);
+            if (SlimefunUtils.isItemSimilar(components.getCoreModule().item(), relic.getRareDrop().item(), true)) {
+                relicsCoreModule.add(relic.item());
             }
         }
 

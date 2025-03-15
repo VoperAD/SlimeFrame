@@ -31,9 +31,9 @@ public final class Researches {
         create(Keys.ORES_RESEARCH, 1, "SlimeFrame ores", 50, SpecialOre.SOURCE_ORE_MAP.values().toArray(SpecialOre[]::new));
         create(Keys.ALLOYS_RESEARCH, 2, "Unveiling the secrets of rare Alloys", 50, SFrameItems.ALLOYS.toArray(SlimefunItem[]::new));
 
-        create(Keys.NOSAM_RESEARCH, 3, "Nosam Pickaxe", 30, SFrameStacks.NOSAM_PICK);
-        create(Keys.FOCUSED_NOSAM_RESEARCH, 4, "Sharpening your knowledge to wield the Focused Nosam Pickaxe with precision", 60, SFrameStacks.FOCUSED_NOSAM_PICK);
-        create(Keys.PRIME_NOSAM_RESEARCH, 5, "Attaining mastery over the Prime Nosam Pickaxe", 90, SFrameStacks.PRIME_NOSAM_PICK);
+        create(Keys.NOSAM_RESEARCH, 3, "Nosam Pickaxe", 30, SFrameStacks.NOSAM_PICK.item());
+        create(Keys.FOCUSED_NOSAM_RESEARCH, 4, "Sharpening your knowledge to wield the Focused Nosam Pickaxe with precision", 60, SFrameStacks.FOCUSED_NOSAM_PICK.item());
+        create(Keys.PRIME_NOSAM_RESEARCH, 5, "Attaining mastery over the Prime Nosam Pickaxe", 90, SFrameStacks.PRIME_NOSAM_PICK.item());
 
         create(Keys.MACHINES_RESEARCH, 6, "Unearthing the essence of fundamental machines to expand your technological arsenal", 30, Groups.MACHINES.getItems().stream()
                 .filter(item -> !item.getItemName().contains("Prime ") && !item.getItemName().contains("Advanced "))
@@ -47,24 +47,24 @@ public final class Researches {
                 .filter(item -> item.getItemName().contains("Prime "))
                 .toList());
 
-        create(Keys.CRYO_SUIT_RESEARCH, 9, "Unleashing the potential of Cryo technology", 50, SFrameStacks.CRYO_BOOTS, SFrameStacks.CRYO_CHESTPLATE, SFrameStacks.CRYO_HELMET, SFrameStacks.CRYO_LEGGINGS);
-        create(Keys.ALLOY_PLATES_RESEARCH, 10, "Studying the intricacies of Alloy Plates, vital components in advanced equipment", 30, SFrameItems.ALLOY_PLATES_MAP.values().toArray(new SlimefunItemStack[0]));
+        create(Keys.CRYO_SUIT_RESEARCH, 9, "Unleashing the potential of Cryo technology", 50, SFrameStacks.CRYO_BOOTS.item(), SFrameStacks.CRYO_CHESTPLATE.item(), SFrameStacks.CRYO_HELMET.item(), SFrameStacks.CRYO_LEGGINGS.item());
+        create(Keys.ALLOY_PLATES_RESEARCH, 10, "Studying the intricacies of Alloy Plates, vital components in advanced equipment", 30, SFrameItems.ALLOY_PLATES_MAP.values().stream().map(SlimefunItemStack::item).toArray(ItemStack[]::new));
 
         create(Keys.ENERGY_GEN_RESEARCH, 11, "Tapping into the power of advanced Energy Generators", 40,
-                SFrameStacks.GRAVITECH_ENERCELL, SFrameStacks.ARCANE_FLUX_DYNAMO, SFrameStacks.SPECTRA_REACTOR,
-                SFrameStacks.PRISMA_POWER_CORE, SFrameStacks.VOIDFORGE_CELESTIUM_GENERATOR, SFrameStacks.AXIOM_ENERGENESIS_ENGINE,
-                SFrameStacks.CHRONOS_INFINITY_DYNAMO, SFrameStacks.PRIMORDIAL_ETERNACORE_REACTOR, SFrameStacks.VOIDLIGHT_FUSION_GENERATOR);
+                SFrameStacks.GRAVITECH_ENERCELL.item(), SFrameStacks.ARCANE_FLUX_DYNAMO.item(), SFrameStacks.SPECTRA_REACTOR.item(),
+                SFrameStacks.PRISMA_POWER_CORE.item(), SFrameStacks.VOIDFORGE_CELESTIUM_GENERATOR.item(), SFrameStacks.AXIOM_ENERGENESIS_ENGINE.item(),
+                SFrameStacks.CHRONOS_INFINITY_DYNAMO.item(), SFrameStacks.PRIMORDIAL_ETERNACORE_REACTOR.item(), SFrameStacks.VOIDLIGHT_FUSION_GENERATOR.item());
 
-        create(Keys.ASTRAL_GEN_RESEARCH, 12, "Achieving celestial heights with the Astral Prime Generator, a testament to energy mastery", 50, SFrameStacks.ASTRAL_PRIME_GENERATOR);
-        create(Keys.MULTIBLOCKS_RESEARCH, 13, "Comprehending the complexities of SlimeFrame Multiblocks", 30, SFrameStacks.FOUNDRY);
-        create(Keys.CONDENSED_PLATE_RESEARCH, 14, "Unlocking the secrets of Condensed Plates", 40, SFrameStacks.CONDENSED_PLATE);
+        create(Keys.ASTRAL_GEN_RESEARCH, 12, "Achieving celestial heights with the Astral Prime Generator, a testament to energy mastery", 50, SFrameStacks.ASTRAL_PRIME_GENERATOR.item());
+        create(Keys.MULTIBLOCKS_RESEARCH, 13, "Comprehending the complexities of SlimeFrame Multiblocks", 30, SFrameStacks.FOUNDRY.item());
+        create(Keys.CONDENSED_PLATE_RESEARCH, 14, "Unlocking the secrets of Condensed Plates", 40, SFrameStacks.CONDENSED_PLATE.item());
 
         create(Keys.GENERAL_RESOURCES_RESEARCH, 15, "General SlimeFrame resources", 25,
-                SFrameStacks.CRYOTIC, SFrameStacks.COOLANT_CANISTER, SFrameStacks.TELLURIUM_FRAGMENT, SFrameStacks.TELLURIUM,
-                SFrameStacks.DILUTED_THERMIA, SFrameStacks.RUBEDO, SFrameStacks.ARGON_CRYSTAL, SFrameStacks.CUBIC_DIODES,
-                SFrameStacks.PLASTIDS, SFrameStacks.CONTROL_MODULE, SFrameStacks.GALLIUM, SFrameStacks.SALVAGE,
-                SFrameStacks.PRISMATIC_ENERGIZED_CORE, SFrameStacks.MORPHICS, SFrameStacks.NEURAL_SENSORS, SFrameStacks.NEURODES,
-                SFrameStacks.OROKIN_CELL);
+                SFrameStacks.CRYOTIC.item(), SFrameStacks.COOLANT_CANISTER.item(), SFrameStacks.TELLURIUM_FRAGMENT.item(), SFrameStacks.TELLURIUM.item(),
+                SFrameStacks.DILUTED_THERMIA.item(), SFrameStacks.RUBEDO.item(), SFrameStacks.ARGON_CRYSTAL.item(), SFrameStacks.CUBIC_DIODES.item(),
+                SFrameStacks.PLASTIDS.item(), SFrameStacks.CONTROL_MODULE.item(), SFrameStacks.GALLIUM.item(), SFrameStacks.SALVAGE.item(),
+                SFrameStacks.PRISMATIC_ENERGIZED_CORE.item(), SFrameStacks.MORPHICS.item(), SFrameStacks.NEURAL_SENSORS.item(), SFrameStacks.NEURODES.item(),
+                SFrameStacks.OROKIN_CELL.item());
 
     }
 

@@ -39,10 +39,10 @@ public class EnergyCentral extends AbstractTickingContainer {
     private static final int TIME = 10;
 
     private static final DecimalFormat format = new DecimalFormat("###,###,###.##", DecimalFormatSymbols.getInstance(Locale.ROOT));
-    private static final CustomItemStack capacitors = new CustomItemStack(HeadTexture.CAPACITOR_100.getAsItemStack(), ChatColor.BLUE + "Capacitors");
-    private static final CustomItemStack generators = new CustomItemStack(Material.DAYLIGHT_DETECTOR, ChatColor.GREEN + "Generators");
-    private static final CustomItemStack consumers = new CustomItemStack(Material.FURNACE, ChatColor.RED + "Consumers");
-    private static final CustomItemStack noEnergyNet = new CustomItemStack(Material.BARRIER, ChatColor.DARK_RED + "Energy net not found");
+    private static final ItemStack capacitors = CustomItemStack.create(HeadTexture.CAPACITOR_100.getAsItemStack(), ChatColor.BLUE + "Capacitors");
+    private static final ItemStack generators = CustomItemStack.create(Material.DAYLIGHT_DETECTOR, ChatColor.GREEN + "Generators");
+    private static final ItemStack consumers = CustomItemStack.create(Material.FURNACE, ChatColor.RED + "Consumers");
+    private static final ItemStack noEnergyNet = CustomItemStack.create(Material.BARRIER, ChatColor.DARK_RED + "Energy net not found");
 
     private final int generatorsSlot = 19;
     private final int capacitorsSlot = 22;
@@ -59,11 +59,11 @@ public class EnergyCentral extends AbstractTickingContainer {
                 36, 37, 38, 39, 40, 41, 42, 43, 44
         });
 
-        preset.drawBackground(new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, " "),
+        preset.drawBackground(CustomItemStack.create(Material.GREEN_STAINED_GLASS_PANE, " "),
                 new int[]{9, 10, 11, 18, 20, 27, 28, 29});
-        preset.drawBackground(new CustomItemStack(Material.BLUE_STAINED_GLASS_PANE, " "),
+        preset.drawBackground(CustomItemStack.create(Material.BLUE_STAINED_GLASS_PANE, " "),
                 new int[]{12, 13, 14, 21, 23, 30, 31, 32});
-        preset.drawBackground(new CustomItemStack(Material.RED_STAINED_GLASS_PANE, " "),
+        preset.drawBackground(CustomItemStack.create(Material.RED_STAINED_GLASS_PANE, " "),
                 new int[]{15, 16, 17, 24, 26, 33, 34, 35});
 
         preset.addItem(getCapacitorsSlot(), capacitors, ChestMenuUtils.getEmptyClickHandler());
@@ -108,7 +108,7 @@ public class EnergyCentral extends AbstractTickingContainer {
                     .map(operand -> Utils.energyPerTickToSeconds((int) operand))
                     .sum();
 
-            menu.replaceExistingItem(getCapacitorsSlot(), new CustomItemStack(capacitors, (meta) -> {
+            menu.replaceExistingItem(getCapacitorsSlot(), CustomItemStack.create(capacitors, (meta) -> {
                 List<String> lore = new ArrayList<>();
                 lore.add(ChatColor.AQUA + "Total: " + Colors.CRAYOLA_BLUE + netCapacitors.size());
                 lore.add(ChatColor.AQUA + "Capacity (from capacitors): " + Colors.CRAYOLA_BLUE + format.format(capacitorsCapacity) + " J");
@@ -116,14 +116,14 @@ public class EnergyCentral extends AbstractTickingContainer {
                 meta.setLore(lore);
             }));
 
-            menu.replaceExistingItem(getGeneratorsSlot(), new CustomItemStack(generators, (meta) -> {
+            menu.replaceExistingItem(getGeneratorsSlot(), CustomItemStack.create(generators, (meta) -> {
                 List<String> lore = new ArrayList<>();
                 lore.add(ChatColor.AQUA + "Total: " + Colors.CRAYOLA_BLUE + netGenerators.size());
                 lore.add(ChatColor.AQUA + "Energy Generated: " + Colors.CRAYOLA_BLUE + format.format(energyGenerated) + " J/s");
                 meta.setLore(lore);
             }));
 
-            menu.replaceExistingItem(getConsumersSlot(), new CustomItemStack(consumers, (meta) -> {
+            menu.replaceExistingItem(getConsumersSlot(), CustomItemStack.create(consumers, (meta) -> {
                 List<String> lore = new ArrayList<>();
                 lore.add(ChatColor.AQUA + "Total: " + Colors.CRAYOLA_BLUE + netConsumers.size());
                 meta.setLore(lore);

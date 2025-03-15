@@ -50,7 +50,7 @@ import net.md_5.bungee.api.ChatColor;
 public class AutoTrader extends AbstractProcessorMachine implements RecipeDisplayItem {
 
     private static final String BLOCK_KEY = "auto_trader";
-    private static final ItemStack SELECT_TRADE = new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, ChatColor.GREEN + "Valid Contract", ChatColor.WHITE + "Select one of the trades");
+    private static final ItemStack SELECT_TRADE = CustomItemStack.create(Material.GREEN_STAINED_GLASS_PANE, ChatColor.GREEN + "Valid Contract", ChatColor.WHITE + "Select one of the trades");
 
     private static final Map<BlockPosition, List<MerchantRecipe>> recipesMap = new HashMap<>();
     private static final Map<BlockPosition, Integer> selectedTradeMap = new HashMap<>();
@@ -175,11 +175,11 @@ public class AutoTrader extends AbstractProcessorMachine implements RecipeDispla
 
     @Override
     protected void onCraftConditionsNotMet(BlockMenu menu) {
-        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), new CustomItemStack(Material.BARRIER, ChatColor.DARK_RED + "Merchant Soul Contract required",
+        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), CustomItemStack.create(Material.BARRIER, ChatColor.DARK_RED + "Merchant Soul Contract required",
                 ChatColor.RED + "There must be a valid merchant contract",
                 ChatColor.RED + "in the contract slot!")
         );
-        MachineUtils.replaceExistingItemViewer(menu, getTradesSlots(), new CustomItemStack(Material.RED_STAINED_GLASS_PANE, " "));
+        MachineUtils.replaceExistingItemViewer(menu, getTradesSlots(), CustomItemStack.create(Material.RED_STAINED_GLASS_PANE, " "));
     }
 
     private void updateTradesSlots(@Nonnull BlockMenu menu, @Nonnull ItemMeta contractMeta) {
@@ -191,7 +191,7 @@ public class AutoTrader extends AbstractProcessorMachine implements RecipeDispla
                 .toList();
 
         for (int i = 0; i < trades.size(); i++) {
-            menu.replaceExistingItem(getTradesSlots()[i], new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, ChatColor.GREEN + "Trade " + (i + 1), trades.get(i)));
+            menu.replaceExistingItem(getTradesSlots()[i], CustomItemStack.create(Material.GREEN_STAINED_GLASS_PANE, ChatColor.GREEN + "Trade " + (i + 1), trades.get(i)));
         }
     }
 
@@ -230,12 +230,12 @@ public class AutoTrader extends AbstractProcessorMachine implements RecipeDispla
 
     @Override
     protected void createMenu(@Nonnull BlockMenuPreset preset) {
-        preset.drawBackground(new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, " "), new int[]{2, 11, 20, 29, 38, 47});
+        preset.drawBackground(CustomItemStack.create(Material.BLACK_STAINED_GLASS_PANE, " "), new int[]{2, 11, 20, 29, 38, 47});
         preset.drawBackground(ChestMenuUtils.getInputSlotTexture(), new int[]{3, 4, 5, 6, 7, 8, 12, 17, 21, 22, 23, 24, 25, 26});
         preset.drawBackground(ChestMenuUtils.getOutputSlotTexture(), new int[]{30, 31, 32, 33, 34, 35, 39, 44, 48, 49, 50, 51, 52, 53});
-        preset.drawBackground(new CustomItemStack(Material.RED_STAINED_GLASS_PANE, " "), getTradesSlots());
+        preset.drawBackground(CustomItemStack.create(Material.RED_STAINED_GLASS_PANE, " "), getTradesSlots());
         // Contract status slot
-        preset.addItem(1, new CustomItemStack(HeadTexture.CARGO_ARROW_LEFT.getAsItemStack(), ChatColor.GREEN + "<<< " + ChatColor.WHITE + "Contract Slot"), ChestMenuUtils.getEmptyClickHandler());
+        preset.addItem(1, CustomItemStack.create(HeadTexture.CARGO_ARROW_LEFT.getAsItemStack(), ChatColor.GREEN + "<<< " + ChatColor.WHITE + "Contract Slot"), ChestMenuUtils.getEmptyClickHandler());
         preset.addItem(getStatusSlot(), MachineUtils.STATUS, ChestMenuUtils.getEmptyClickHandler());
     }
 
@@ -313,7 +313,7 @@ public class AutoTrader extends AbstractProcessorMachine implements RecipeDispla
     @Nonnull
     @Override
     public List<ItemStack> getDisplayRecipes() {
-        return List.of(SFrameStacks.MERCHANT_SOUL_CONTRACT.clone());
+        return List.of(SFrameStacks.MERCHANT_SOUL_CONTRACT.item());
     }
 
 }

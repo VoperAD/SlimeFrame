@@ -3,8 +3,13 @@ package me.voper.slimeframe.implementation.items.relics;
 import java.util.HashMap;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.logging.Level;
 
 import javax.annotation.Nonnull;
+
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+
+import me.voper.slimeframe.SlimeFrame;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -19,6 +24,8 @@ import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.*;
 import net.md_5.bungee.api.chat.hover.content.Text;
 
+import org.bukkit.inventory.meta.ItemMeta;
+
 @Getter
 public class RelicInventory {
 
@@ -31,15 +38,21 @@ public class RelicInventory {
         this.inventory = Bukkit.createInventory(owner, SIZE, ChatColor.WHITE + owner.getName() + "'s Relics Inventory");
     }
 
-    public void addRelic(@Nonnull RelicItemStack relic) {
+    public void addRelic(@Nonnull ItemStack relic) {
         HashMap<Integer, ItemStack> result = inventory.addItem(relic);
 
         Player player = Bukkit.getPlayer(owner);
         if (player == null) return;
 
         if (result.isEmpty()) {
+            ItemMeta itemMeta = relic.getItemMeta();
+            if (itemMeta == null) {
+                SlimeFrame.getInstance().getLogger().log(Level.SEVERE, "ItemMeta is null on method RelicInventory#addRelic for relic: " + relic);
+                return;
+            }
+
             BaseComponent[] baseComponents = new ComponentBuilder("You have just received a ").color(ChatColor.GREEN)
-                    .append(relic.getDisplayName())
+                    .append(itemMeta.getDisplayName())
                     .append(" Relic. Click this message or check your personal Relic Inventory - /sframe inventory").color(ChatColor.GREEN)
                     .create();
 
@@ -54,14 +67,13 @@ public class RelicInventory {
     }
 
     public void addRandomRelic(@Nonnull Relic.Era era) {
-        RelicItemStack randomRelic = null;
+        ItemStack randomRelic = null;
         switch (era) {
             case LITH -> randomRelic = SFrameStacks.RANDOM_LITH_RELICS.getRandom();
             case MESO -> randomRelic = SFrameStacks.RANDOM_MESO_RELICS.getRandom();
             case NEO -> randomRelic = SFrameStacks.RANDOM_NEO_RELICS.getRandom();
             case AXI -> randomRelic = SFrameStacks.RANDOM_AXI_RELICS.getRandom();
-            default -> {
-            }
+            default -> {}
         }
         addRelic(randomRelic);
     }

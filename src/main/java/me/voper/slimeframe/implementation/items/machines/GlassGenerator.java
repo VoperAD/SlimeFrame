@@ -75,7 +75,7 @@ public class GlassGenerator extends AbstractSelectorMachine implements RecipeDis
 
     @Override
     protected void onCraftConditionsNotMet(BlockMenu menu) {
-        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), new CustomItemStack(Material.BARRIER, ChatColor.RED + "Select a glass to generate!"));
+        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), CustomItemStack.create(Material.BARRIER, ChatColor.RED + "Select a glass to generate!"));
     }
 
     @Nonnull

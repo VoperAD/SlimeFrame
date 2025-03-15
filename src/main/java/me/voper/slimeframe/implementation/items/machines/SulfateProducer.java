@@ -31,7 +31,7 @@ public class SulfateProducer extends AbstractProcessorMachine implements RecipeD
     @Override
     public void postRegister() {
         super.postRegister();
-        registerRecipe(5, new ItemStack(Material.BASALT, 4), new SlimefunItemStack(SlimefunItems.SULFATE, 4 * production));
+        registerRecipe(5, new ItemStack(Material.BASALT, 4), new SlimefunItemStack(SlimefunItems.SULFATE, 4 * production).item());
     }
 
     @Override
@@ -42,6 +42,6 @@ public class SulfateProducer extends AbstractProcessorMachine implements RecipeD
     @Nonnull
     @Override
     public List<ItemStack> getDisplayRecipes() {
-        return List.of(new ItemStack(Material.BASALT, 4), new SlimefunItemStack(SlimefunItems.SULFATE, 4 * production));
+        return List.of(new ItemStack(Material.BASALT, 4), new SlimefunItemStack(SlimefunItems.SULFATE, 4 * production).item());
     }
 }

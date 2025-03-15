@@ -35,15 +35,15 @@ public class DustGenerator extends AbstractSelectorMachine implements RecipeDisp
     private static final Map<String, ItemStack> OUTPUT_MAPPER;
     private static final List<ItemStack> DUSTS = new ArrayList<>(List.of(
             MachineUtils.SELECTOR,
-            MachineUtils.selectorItem(SlimefunItems.ALUMINUM_DUST),
-            MachineUtils.selectorItem(SlimefunItems.COPPER_DUST),
-            MachineUtils.selectorItem(SlimefunItems.GOLD_DUST),
-            MachineUtils.selectorItem(SlimefunItems.IRON_DUST),
-            MachineUtils.selectorItem(SlimefunItems.LEAD_DUST),
-            MachineUtils.selectorItem(SlimefunItems.MAGNESIUM_DUST),
-            MachineUtils.selectorItem(SlimefunItems.SILVER_DUST),
-            MachineUtils.selectorItem(SlimefunItems.TIN_DUST),
-            MachineUtils.selectorItem(SlimefunItems.ZINC_DUST)
+            MachineUtils.selectorItem(SlimefunItems.ALUMINUM_DUST.item()),
+            MachineUtils.selectorItem(SlimefunItems.COPPER_DUST.item()),
+            MachineUtils.selectorItem(SlimefunItems.GOLD_DUST.item()),
+            MachineUtils.selectorItem(SlimefunItems.IRON_DUST.item()),
+            MachineUtils.selectorItem(SlimefunItems.LEAD_DUST.item()),
+            MachineUtils.selectorItem(SlimefunItems.MAGNESIUM_DUST.item()),
+            MachineUtils.selectorItem(SlimefunItems.SILVER_DUST.item()),
+            MachineUtils.selectorItem(SlimefunItems.TIN_DUST.item()),
+            MachineUtils.selectorItem(SlimefunItems.ZINC_DUST.item())
     ));
 
     static {
@@ -92,7 +92,7 @@ public class DustGenerator extends AbstractSelectorMachine implements RecipeDisp
 
     @Override
     protected void onCraftConditionsNotMet(BlockMenu menu) {
-        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), new CustomItemStack(Material.BARRIER, ChatColor.RED + "Select a dust to generate!"));
+        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), CustomItemStack.create(Material.BARRIER, ChatColor.RED + "Select a dust to generate!"));
     }
 
     @Nonnull

@@ -47,10 +47,10 @@ public class ItemProjector extends AbstractTickingContainer {
     private static final Map<BlockPosition, ItemStack> HOLOGRAM_MAP = new HashMap<>();
     private static final Map<BlockPosition, BukkitTask> SPINNING_TASK_MAP = new HashMap<>();
 
-    private static final ItemStack INCREMENT_HEIGHT = new CustomItemStack(PlayerHead.getItemStack(PlayerSkin.fromBase64(HeadTextures.GRAY_PLUS)), ChatColor.AQUA + "Click to increment the height");
-    private static final ItemStack DECREMENT_HEIGHT = new CustomItemStack(PlayerHead.getItemStack(PlayerSkin.fromBase64(HeadTextures.GRAY_MINUS)), ChatColor.AQUA + "Click to decrement the height");
-    private static final ItemStack SPIN = new CustomItemStack(Material.MUSIC_DISC_5, ChatColor.AQUA + "Click to start/stop spinning");
-    private static final ItemStack SIZE = new CustomItemStack(Material.BONE_MEAL, ChatColor.AQUA + "Click to increase/decrease the size");
+    private static final ItemStack INCREMENT_HEIGHT = CustomItemStack.create(PlayerHead.getItemStack(PlayerSkin.fromBase64(HeadTextures.GRAY_PLUS)), ChatColor.AQUA + "Click to increment the height");
+    private static final ItemStack DECREMENT_HEIGHT = CustomItemStack.create(PlayerHead.getItemStack(PlayerSkin.fromBase64(HeadTextures.GRAY_MINUS)), ChatColor.AQUA + "Click to decrement the height");
+    private static final ItemStack SPIN = CustomItemStack.create(Material.MUSIC_DISC_5, ChatColor.AQUA + "Click to start/stop spinning");
+    private static final ItemStack SIZE = CustomItemStack.create(Material.BONE_MEAL, ChatColor.AQUA + "Click to increase/decrease the size");
 
     private static final String OFFSET_KEY = "offset";
     private static final String SPINNING_KEY = "spinning";
@@ -85,7 +85,7 @@ public class ItemProjector extends AbstractTickingContainer {
 
     @Override
     protected void createMenu(@Nonnull BlockMenuPreset preset) {
-        preset.drawBackground(new CustomItemStack(Material.YELLOW_STAINED_GLASS_PANE, " "), new int[]{12, 13, 14, 21, 23, 30, 31, 32});
+        preset.drawBackground(CustomItemStack.create(Material.YELLOW_STAINED_GLASS_PANE, " "), new int[]{12, 13, 14, 21, 23, 30, 31, 32});
         preset.drawBackground(new int[]{
                 0, 1, 2, 3, 4, 5, 6, 7, 8,
                 9, 10, 11, 15, 16, 17,

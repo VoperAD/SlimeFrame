@@ -14,7 +14,6 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.thebusybiscuit.slimefun4.api.items.HashedArmorpiece;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
 import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectiveArmor;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
@@ -60,7 +59,7 @@ public class ArmorMonitorTask implements Runnable {
         Set<SlimefunItem> freezingItems = SlimeFrame.getFreezingItems();
         ItemStack itemStack = item;
 
-        if (!(item instanceof SlimefunItemStack) && freezingItems.size() >= 1) {
+        if (SlimefunItem.getByItem(item) == null && !freezingItems.isEmpty()) {
             itemStack = ItemStackWrapper.wrap(item);
         }
 

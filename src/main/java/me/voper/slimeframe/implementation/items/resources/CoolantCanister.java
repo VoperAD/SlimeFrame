@@ -19,7 +19,7 @@ public class CoolantCanister extends SimpleSlimefunItem<ItemConsumptionHandler> 
     public CoolantCanister() {
         super(Groups.RESOURCES, SFrameStacks.COOLANT_CANISTER, MobDropItem.RECIPE_TYPE, new ItemStack[]{
                 null, null, null, null,
-                new CustomItemStack(Material.CAVE_SPIDER_SPAWN_EGG, ChatColor.BLUE + "Coolant Raknoid",
+                CustomItemStack.create(Material.CAVE_SPIDER_SPAWN_EGG, ChatColor.BLUE + "Coolant Raknoid",
                         "",
                         ChatColor.GRAY + "A cave spider with blue particles",
                         ChatColor.GRAY + "swirling around it")

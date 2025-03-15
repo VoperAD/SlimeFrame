@@ -33,7 +33,7 @@ import net.md_5.bungee.api.ChatColor;
 @Getter
 public class MobDropItem extends SlimefunItem implements AdvancedMobDrop, RecipeDisplayItem {
 
-    public static final RecipeType RECIPE_TYPE = new RecipeType(Keys.createKey("mob_drop_recipe"), new CustomItemStack(Material.IRON_SWORD, "&rKill the specified Mobs to obtain this Item"));
+    public static final RecipeType RECIPE_TYPE = new RecipeType(Keys.createKey("mob_drop_recipe"), CustomItemStack.create(Material.IRON_SWORD, "&rKill the specified Mobs to obtain this Item"));
 
     private int globalDrobChance = 0;
     private Map<EntityType, Integer> mobChanceMap = new HashMap<>();
@@ -105,10 +105,10 @@ public class MobDropItem extends SlimefunItem implements AdvancedMobDrop, Recipe
         mobChanceMap.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue())
                 .forEach(entry -> {
-                    recipes.add(new CustomItemStack(Material.PAPER, ChatColor.WHITE + "Drop chance: " + ChatColor.AQUA + entry.getValue() + "%"));
+                    recipes.add(CustomItemStack.create(Material.PAPER, ChatColor.WHITE + "Drop chance: " + ChatColor.AQUA + entry.getValue() + "%"));
                     Material material = Material.getMaterial(entry.getKey().name() + "_SPAWN_EGG");
                     if (material != null) {
-                        CustomItemStack spawnEgg = new CustomItemStack(material, Utils.formatMaterialString(material).replaceAll("Spawn Egg", " ").trim());
+                        ItemStack spawnEgg = CustomItemStack.create(material, Utils.formatMaterialString(material).replaceAll("Spawn Egg", " ").trim());
                         recipes.add(spawnEgg);
                     }
                 });

@@ -97,7 +97,7 @@ public class FlowerGenerator extends AbstractMachine {
 
     @Override
     protected void onCraftConditionsNotMet(BlockMenu menu) {
-        menu.replaceExistingItem(getStatusSlot(), new CustomItemStack(Material.FLOWER_POT, ChatColor.RED + "There must be a potted flower above this machine."));
+        menu.replaceExistingItem(getStatusSlot(), CustomItemStack.create(Material.FLOWER_POT, ChatColor.RED + "There must be a potted flower above this machine."));
     }
 
     private void updateProgress(BlockMenu menu, int progress) {
@@ -107,7 +107,7 @@ public class FlowerGenerator extends AbstractMachine {
     @Override
     protected void createMenu(@Nonnull BlockMenuPreset preset) {
         preset.drawBackground(new int[]{0, 1, 2, 3, 5, 6, 7, 8});
-        preset.drawBackground(new CustomItemStack(Material.PINK_STAINED_GLASS_PANE, " "), new int[]{9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 26, 27, 35, 36, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53});
+        preset.drawBackground(CustomItemStack.create(Material.PINK_STAINED_GLASS_PANE, " "), new int[]{9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 26, 27, 35, 36, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53});
         preset.addItem(getStatusSlot(), MachineUtils.STATUS, ChestMenuUtils.getEmptyClickHandler());
     }
 

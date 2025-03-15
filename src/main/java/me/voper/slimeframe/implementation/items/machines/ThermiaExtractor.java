@@ -68,32 +68,32 @@ public class ThermiaExtractor extends AbstractMachine {
             if (coolantCanisters < 5 && !completed) {
                 for (int slot : getInputSlots()) {
                     ItemStack itemInSlot = menu.getItemInSlot(slot);
-                    if (!SlimefunUtils.isItemSimilar(itemInSlot, SFrameStacks.COOLANT_CANISTER, true)) continue;
+                    if (!SlimefunUtils.isItemSimilar(itemInSlot, SFrameStacks.COOLANT_CANISTER.item(), true)) continue;
 
                     ItemUtils.consumeItem(itemInSlot, false);
-                    menu.replaceExistingItem(getProgressSlots()[coolantCanisters++], new CustomItemStack(Material.RED_STAINED_GLASS_PANE, " "));
+                    menu.replaceExistingItem(getProgressSlots()[coolantCanisters++], CustomItemStack.create(Material.RED_STAINED_GLASS_PANE, " "));
                     completed = (coolantCanisters == 5);
                     COUNTER_MAP.put(blockPosition, ++progress);
                     break;
                 }
 
-                menu.replaceExistingItem(getStatusSlot(), new CustomItemStack(Material.PURPLE_STAINED_GLASS_PANE, ChatColor.WHITE + "Coolant Canisters: " + ChatColor.RED + coolantCanisters + "/5"));
+                menu.replaceExistingItem(getStatusSlot(), CustomItemStack.create(Material.PURPLE_STAINED_GLASS_PANE, ChatColor.WHITE + "Coolant Canisters: " + ChatColor.RED + coolantCanisters + "/5"));
                 return coolantCanisters >= 1;
             } else {
                 // Output slots are full
-                if (!menu.fits(SFrameStacks.DILUTED_THERMIA, getOutputSlots())) {
+                if (!menu.fits(SFrameStacks.DILUTED_THERMIA.item(), getOutputSlots())) {
                     MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(),
-                            new CustomItemStack(Material.BARRIER, ChatColor.DARK_RED + "No space!"));
+                            CustomItemStack.create(Material.BARRIER, ChatColor.DARK_RED + "No space!"));
                     return true;
                 }
 
                 if (--coolantCanisters < 0) {
-                    menu.pushItem(SFrameStacks.DILUTED_THERMIA.clone(), getOutputSlots());
+                    menu.pushItem(SFrameStacks.DILUTED_THERMIA.item(), getOutputSlots());
                     coolantCanisters = 0;
                     completed = false;
                 } else {
-                    menu.replaceExistingItem(getProgressSlots()[coolantCanisters], new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, " "));
-                    menu.replaceExistingItem(getStatusSlot(), new CustomItemStack(Material.GREEN_STAINED_GLASS_PANE, Colors.ORANGE + "Diluting Thermia..."));
+                    menu.replaceExistingItem(getProgressSlots()[coolantCanisters], CustomItemStack.create(Material.GRAY_STAINED_GLASS_PANE, " "));
+                    menu.replaceExistingItem(getStatusSlot(), CustomItemStack.create(Material.GREEN_STAINED_GLASS_PANE, Colors.ORANGE + "Diluting Thermia..."));
                 }
 
                 COUNTER_MAP.put(blockPosition, ++progress);
@@ -107,7 +107,7 @@ public class ThermiaExtractor extends AbstractMachine {
             return true;
         }
 
-        menu.replaceExistingItem(getStatusSlot(), new CustomItemStack(Material.PURPLE_STAINED_GLASS_PANE, ChatColor.WHITE + "Coolant Canisters: " + ChatColor.RED + coolantCanisters + "/5"));
+        menu.replaceExistingItem(getStatusSlot(), CustomItemStack.create(Material.PURPLE_STAINED_GLASS_PANE, ChatColor.WHITE + "Coolant Canisters: " + ChatColor.RED + coolantCanisters + "/5"));
         COUNTER_MAP.put(blockPosition, ++progress);
         return true;
     }
@@ -120,7 +120,7 @@ public class ThermiaExtractor extends AbstractMachine {
     @Override
     protected void onCraftConditionsNotMet(BlockMenu menu) {
         MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(),
-                new CustomItemStack(Material.BARRIER, ChatColor.DARK_RED + "Error",
+                CustomItemStack.create(Material.BARRIER, ChatColor.DARK_RED + "Error",
                         ChatColor.RED + "This machine must be in the nether",
                         ChatColor.RED + "and above a Magma Block")
         );
@@ -138,9 +138,9 @@ public class ThermiaExtractor extends AbstractMachine {
             int progress = Integer.parseInt(locationInfo);
             if (progress == 0) return;
             for (int i = 0; i < progress; i++) {
-                menu.replaceExistingItem(getProgressSlots()[i], new CustomItemStack(Material.RED_STAINED_GLASS_PANE, " "));
+                menu.replaceExistingItem(getProgressSlots()[i], CustomItemStack.create(Material.RED_STAINED_GLASS_PANE, " "));
             }
-            menu.replaceExistingItem(getStatusSlot(), new CustomItemStack(Material.PURPLE_STAINED_GLASS_PANE, ChatColor.WHITE + "Progress: " + Colors.ORANGE + locationInfo + "/5"));
+            menu.replaceExistingItem(getStatusSlot(), CustomItemStack.create(Material.PURPLE_STAINED_GLASS_PANE, ChatColor.WHITE + "Progress: " + Colors.ORANGE + locationInfo + "/5"));
             this.coolantCanisters = progress;
         }
 
@@ -151,7 +151,7 @@ public class ThermiaExtractor extends AbstractMachine {
         preset.drawBackground(getProgressSlots());
 
         // Progress slots border
-        preset.drawBackground(new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, " "),
+        preset.drawBackground(CustomItemStack.create(Material.BLACK_STAINED_GLASS_PANE, " "),
                 new int[]{0, 9, 18, 27, 36, 45, 46, 2, 11, 20, 29, 38, 47});
 
         preset.drawBackground(ChestMenuUtils.getInputSlotTexture(),

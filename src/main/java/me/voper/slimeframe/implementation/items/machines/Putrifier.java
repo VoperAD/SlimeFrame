@@ -34,7 +34,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 @Accessors(chain = true)
 public class Putrifier extends AbstractProcessorMachine implements RecipeDisplayItem {
 
-    private static final RandomItemStacks<ItemStack> SUSPICIOUS_STEWS = new RandomItemStacks<>();
+    private static final RandomItemStacks SUSPICIOUS_STEWS = new RandomItemStacks();
 
     @Setter
     private int production = 1;

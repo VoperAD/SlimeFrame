@@ -61,7 +61,7 @@ public class MasterGroup extends FlexItemGroup {
     }
 
     public MasterGroup(NamespacedKey key, String texture, String name) {
-        this(key, new CustomItemStack(PlayerHead.getItemStack(PlayerSkin.fromHashCode(texture)), name), name);
+        this(key, CustomItemStack.create(PlayerHead.getItemStack(PlayerSkin.fromHashCode(texture)), name), name);
     }
 
     public void addSubGroup(@Nonnull ItemGroup group) {
@@ -101,7 +101,10 @@ public class MasterGroup extends FlexItemGroup {
         menu.addMenuOpeningHandler(pl -> pl.playSound(pl.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1, 1));
         guide.createHeader(p, profile, menu);
 
-        menu.addItem(1, new CustomItemStack(ChestMenuUtils.getBackButton(p, ChatColor.GRAY + Slimefun.getLocalization().getMessage(p, "guide.back.guide"))));
+        menu.addItem(1, CustomItemStack.create(
+                ChestMenuUtils.getBackButton(p, ChatColor.GRAY + Slimefun.getLocalization().getMessage(p, "guide.back.guide")),
+                1
+        ));
         menu.addMenuClickHandler(1, (pl, s, is, action) -> {
 
             if (hasMaster()) {

@@ -88,7 +88,7 @@ public class TerracottaGenerator extends AbstractSelectorMachine implements Reci
 
     @Override
     protected void onCraftConditionsNotMet(BlockMenu menu) {
-        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), new CustomItemStack(Material.BARRIER, ChatColor.RED + "Select a terracotta to generate!"));
+        MachineUtils.replaceExistingItemViewer(menu, getStatusSlot(), CustomItemStack.create(Material.BARRIER, ChatColor.RED + "Select a terracotta to generate!"));
     }
 
     @Nonnull

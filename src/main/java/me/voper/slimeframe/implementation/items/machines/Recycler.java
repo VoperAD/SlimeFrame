@@ -41,8 +41,8 @@ public class Recycler extends AbstractProcessorMachine implements RecipeDisplayI
 
     @Override
     public void postRegister() {
-        registerRecipe(TIME, new SlimefunItemStack(SlimefunItems.ADVANCED_CIRCUIT_BOARD, 8), SFrameStacks.GALLIUM.clone());
-        MACHINES_AND_GENERATORS.forEach(item -> registerRecipe(TIME, item, new SlimefunItemStack(SFrameStacks.SALVAGE, 8)));
+        registerRecipe(TIME, new SlimefunItemStack(SlimefunItems.ADVANCED_CIRCUIT_BOARD, 8).item(), SFrameStacks.GALLIUM.item());
+        MACHINES_AND_GENERATORS.forEach(item -> registerRecipe(TIME, item, new SlimefunItemStack(SFrameStacks.SALVAGE, 8).item()));
     }
 
     @Override
@@ -55,12 +55,12 @@ public class Recycler extends AbstractProcessorMachine implements RecipeDisplayI
     public List<ItemStack> getDisplayRecipes() {
         final List<ItemStack> recipes = new ArrayList<>();
 
-        recipes.add(new SlimefunItemStack(SlimefunItems.ADVANCED_CIRCUIT_BOARD, 8));
-        recipes.add(SFrameStacks.GALLIUM.clone());
+        recipes.add(new SlimefunItemStack(SlimefunItems.ADVANCED_CIRCUIT_BOARD, 8).item());
+        recipes.add(SFrameStacks.GALLIUM.item());
 
         MACHINES_AND_GENERATORS.forEach(item -> {
             recipes.add(item);
-            recipes.add(new SlimefunItemStack(SFrameStacks.SALVAGE, 8));
+            recipes.add(new SlimefunItemStack(SFrameStacks.SALVAGE, 8).item());
         });
 
         return recipes;

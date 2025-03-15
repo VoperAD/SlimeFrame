@@ -31,7 +31,7 @@ import lombok.Getter;
 public final class SpecialOre extends SlimefunItem implements NotPlaceable, Comparable<SpecialOre>, RecipeDisplayItem {
 
     public static final Map<Material, SpecialOre> SOURCE_ORE_MAP = new HashMap<>();
-    public static final RecipeType RECIPE_TYPE = new RecipeType(Keys.createKey("ores_recipe"), new CustomItemStack(Material.DIAMOND_PICKAXE, "&bNosam Pickaxe", "&fYou must mine a specific ore", "&fusing a Nosam Pickaxe."));
+    public static final RecipeType RECIPE_TYPE = new RecipeType(Keys.createKey("ores_recipe"), CustomItemStack.create(Material.DIAMOND_PICKAXE, "&bNosam Pickaxe", "&fYou must mine a specific ore", "&fusing a Nosam Pickaxe."));
 
     private final Material[] source;
     private final Rarity rarity;

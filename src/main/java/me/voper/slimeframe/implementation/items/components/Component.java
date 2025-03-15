@@ -24,7 +24,7 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Component extends UnplaceableBlock implements RecipeDisplayItem {
 
-    public static final RecipeType RECIPE_TYPE = new RecipeType(Keys.createKey("prime_component_reward"), new CustomItemStack(Material.DIAMOND, ChatColor.AQUA + "This item is dropped by the relics below:"));
+    public static final RecipeType RECIPE_TYPE = new RecipeType(Keys.createKey("prime_component_reward"), CustomItemStack.create(Material.DIAMOND, ChatColor.AQUA + "This item is dropped by the relics below:"));
 
     private final List<ItemStack> relics = new ArrayList<>();
 

@@ -15,27 +15,27 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @ParametersAreNonnullByDefault
-public class RandomItemStacks<T extends ItemStack> {
+public class RandomItemStacks {
 
     @Getter
-    private final List<T> items = new ArrayList<>();
+    private final List<ItemStack> items = new ArrayList<>();
 
-    public RandomItemStacks(T[] itemStacks) {
+    public RandomItemStacks(ItemStack[] itemStacks) {
         this.items.addAll(List.of(itemStacks));
     }
 
-    public RandomItemStacks(RandomItemStacks<T>[] randomItemStacksArray) {
-        for (RandomItemStacks<T> randomItemStack : randomItemStacksArray) {
+    public RandomItemStacks(RandomItemStacks[] randomItemStacksArray) {
+        for (RandomItemStacks randomItemStack : randomItemStacksArray) {
             this.items.addAll(randomItemStack.items);
         }
     }
 
-    public T getRandom() {
+    public ItemStack getRandom() {
         Validate.notEmpty(items, "Items list must not be empty.");
         return items.size() == 1 ? items.get(0) : items.get(ThreadLocalRandom.current().nextInt(items.size()));
     }
 
-    public void add(T item) {
+    public void add(ItemStack item) {
         this.items.add(item);
     }
 

@@ -53,10 +53,10 @@ public class Relic extends SlimefunItem implements NotPlaceable {
 
     private static final SlimeFrame plugin = SlimeFrame.getInstance();
 
-    private static final RecipeType LITH_RECIPE_TYPE = new RecipeType(Keys.createKey("lith_recipe"), new CustomItemStack(Material.FISHING_ROD, ChatColor.AQUA + "Go fishing!", ChatColor.WHITE + "One random lith relic", ChatColor.WHITE + "for every " + SlimeFrame.getSettingsManager().getInt(SettingsManager.ConfigField.LITH_RELIC) + " fishes caught!"));
-    private static final RecipeType MESO_RECIPE_TYPE = new RecipeType(Keys.createKey("meso_recipe"), new CustomItemStack(Material.DIAMOND_SWORD, ChatColor.AQUA + "Go killing!", ChatColor.WHITE + "One random meso relic", ChatColor.WHITE + "for every " + SlimeFrame.getSettingsManager().getInt(SettingsManager.ConfigField.MESO_RELIC) + " entities killed!"));
-    private static final RecipeType NEO_RECIPE_TYPE = new RecipeType(Keys.createKey("neo_recipe"), new CustomItemStack(Material.DIAMOND_PICKAXE, ChatColor.AQUA + "Go mining!", ChatColor.WHITE + "One random neo relic", ChatColor.WHITE + "for every " + SlimeFrame.getSettingsManager().getInt(SettingsManager.ConfigField.NEO_RELIC) + " blocks broken!"));
-    private static final RecipeType AXI_RECIPE_TYPE = new RecipeType(Keys.createKey("axi_recipe"), new CustomItemStack(Material.BRICKS, ChatColor.AQUA + "Go building!", ChatColor.WHITE + "One random axi relic", ChatColor.WHITE + "for every " + SlimeFrame.getSettingsManager().getInt(SettingsManager.ConfigField.AXI_RELIC) + " blocks placed!"));
+    private static final RecipeType LITH_RECIPE_TYPE = new RecipeType(Keys.createKey("lith_recipe"), CustomItemStack.create(Material.FISHING_ROD, ChatColor.AQUA + "Go fishing!", ChatColor.WHITE + "One random lith relic", ChatColor.WHITE + "for every " + SlimeFrame.getSettingsManager().getInt(SettingsManager.ConfigField.LITH_RELIC) + " fishes caught!"));
+    private static final RecipeType MESO_RECIPE_TYPE = new RecipeType(Keys.createKey("meso_recipe"), CustomItemStack.create(Material.DIAMOND_SWORD, ChatColor.AQUA + "Go killing!", ChatColor.WHITE + "One random meso relic", ChatColor.WHITE + "for every " + SlimeFrame.getSettingsManager().getInt(SettingsManager.ConfigField.MESO_RELIC) + " entities killed!"));
+    private static final RecipeType NEO_RECIPE_TYPE = new RecipeType(Keys.createKey("neo_recipe"), CustomItemStack.create(Material.DIAMOND_PICKAXE, ChatColor.AQUA + "Go mining!", ChatColor.WHITE + "One random neo relic", ChatColor.WHITE + "for every " + SlimeFrame.getSettingsManager().getInt(SettingsManager.ConfigField.NEO_RELIC) + " blocks broken!"));
+    private static final RecipeType AXI_RECIPE_TYPE = new RecipeType(Keys.createKey("axi_recipe"), CustomItemStack.create(Material.BRICKS, ChatColor.AQUA + "Go building!", ChatColor.WHITE + "One random axi relic", ChatColor.WHITE + "for every " + SlimeFrame.getSettingsManager().getInt(SettingsManager.ConfigField.AXI_RELIC) + " blocks placed!"));
 
     private final Era era;
     private final SlimefunItemStack[] commonDrops;
@@ -117,7 +117,7 @@ public class Relic extends SlimefunItem implements NotPlaceable {
             int voidTracesReward = ThreadLocalRandom.current().nextInt(20) + 1;
             SlimefunItemStack reward = dropDistribution.sample();
 
-            PlayerOpenRelicEvent relicEvent = new PlayerOpenRelicEvent(p, reward, relic, voidTracesReward);
+            PlayerOpenRelicEvent relicEvent = new PlayerOpenRelicEvent(p, reward.item(), relic, voidTracesReward);
             Bukkit.getPluginManager().callEvent(relicEvent);
             if (relicEvent.isCancelled()) return;
 

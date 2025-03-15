@@ -29,13 +29,13 @@ public class Groups {
 
     public static final TutorialsGroup TUTORIALS = new TutorialsGroup(
             Keys.createKey("wf_tutorials"),
-            new CustomItemStack(Material.ENCHANTED_BOOK, Colors.CRAYOLA_BLUE + "Tutorials")
+            CustomItemStack.create(Material.ENCHANTED_BOOK, Colors.CRAYOLA_BLUE + "Tutorials")
     );
 
     public static final MasterGroup RELICS = new MasterGroup(
             Keys.CAT_RELICS,
             MAIN_GROUP,
-            new CustomItemStack(Material.ENDER_EYE, Colors.CRAYOLA_BLUE + "Relics"),
+            CustomItemStack.create(Material.ENDER_EYE, Colors.CRAYOLA_BLUE + "Relics"),
             Colors.CRAYOLA_BLUE + "Relics"
     );
 
@@ -43,67 +43,67 @@ public class Groups {
     public static final ChildGroup LITH = new ChildGroup(
             Keys.CAT_LITH,
             RELICS,
-            new CustomItemStack(HeadTextures.getSkull(HeadTextures.LITH_RELIC), "&fLith Era")
+            CustomItemStack.create(HeadTextures.getSkull(HeadTextures.LITH_RELIC), "&fLith Era")
     );
 
     public static final ChildGroup MESO = new ChildGroup(
             Keys.CAT_MESO,
             RELICS,
-            new CustomItemStack(HeadTextures.getSkull(HeadTextures.MESO_RELIC), "&eMeso Era")
+            CustomItemStack.create(HeadTextures.getSkull(HeadTextures.MESO_RELIC), "&eMeso Era")
     );
 
     public static final ChildGroup NEO = new ChildGroup(
             Keys.CAT_NEO,
             RELICS,
-            new CustomItemStack(HeadTextures.getSkull(HeadTextures.NEO_RELIC), "&2Neo Era")
+            CustomItemStack.create(HeadTextures.getSkull(HeadTextures.NEO_RELIC), "&2Neo Era")
     );
 
     public static final ChildGroup AXI = new ChildGroup(
             Keys.CAT_AXI,
             RELICS,
-            new CustomItemStack(HeadTextures.getSkull(HeadTextures.AXI_RELIC), "&dAxi Era")
+            CustomItemStack.create(HeadTextures.getSkull(HeadTextures.AXI_RELIC), "&dAxi Era")
     );
 
     public static final ChildGroup RESOURCES = new ChildGroup(
             Keys.CAT_RESOURCES,
             MAIN_GROUP,
-            new CustomItemStack(Material.COAL, Colors.CRAYOLA_BLUE + "Resources")
+            CustomItemStack.create(Material.COAL, Colors.CRAYOLA_BLUE + "Resources")
     );
 
     public static final ChildGroup MULTIBLOCKS = new ChildGroup(
             Keys.CAT_MULTIBLOCKS,
             MAIN_GROUP,
-            new CustomItemStack(HeadTextures.getSkull(HeadTextures.MULTIBLOCKS), Colors.CRAYOLA_BLUE + "Multiblocks")
+            CustomItemStack.create(HeadTextures.getSkull(HeadTextures.MULTIBLOCKS), Colors.CRAYOLA_BLUE + "Multiblocks")
     );
 
     public static final ChildGroup MACHINES = new ChildGroup(
             Keys.CAT_MACHINES,
             MAIN_GROUP,
-            new CustomItemStack(Material.STONECUTTER, Colors.CRAYOLA_BLUE + "Machines")
+            CustomItemStack.create(Material.STONECUTTER, Colors.CRAYOLA_BLUE + "Machines")
     );
 
     public static final ChildGroup GENERATORS = new ChildGroup(
             Keys.CAT_GENERATORS,
             MAIN_GROUP,
-            new CustomItemStack(Material.DAYLIGHT_DETECTOR, Colors.CRAYOLA_BLUE + "Generators")
+            CustomItemStack.create(Material.DAYLIGHT_DETECTOR, Colors.CRAYOLA_BLUE + "Generators")
     );
 
     public static final ChildGroup GEAR = new ChildGroup(
             Keys.CAT_GEAR,
             MAIN_GROUP,
-            new CustomItemStack(Material.CHAINMAIL_CHESTPLATE, Colors.CRAYOLA_BLUE + "Gear")
+            CustomItemStack.create(Material.CHAINMAIL_CHESTPLATE, Colors.CRAYOLA_BLUE + "Gear")
     );
 
     public static final ChildGroup UTILS_AND_TOOLS = new ChildGroup(
             Keys.CAT_UTILS_AND_TOOLS,
             MAIN_GROUP,
-            new CustomItemStack(Material.SHEARS, Colors.CRAYOLA_BLUE + "Utils & Tools")
+            CustomItemStack.create(Material.SHEARS, Colors.CRAYOLA_BLUE + "Utils & Tools")
     );
 
     public static final ChildGroup PRIME_COMPONENTS = new ChildGroup(
             Keys.CAT_PRIME_COMPONENTS,
             MAIN_GROUP,
-            new CustomItemStack(Material.CONDUIT, Colors.CRAYOLA_BLUE + "Prime Components")
+            CustomItemStack.create(Material.CONDUIT, Colors.CRAYOLA_BLUE + "Prime Components")
     );
 
 }

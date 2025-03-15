@@ -157,17 +157,17 @@ public class UtilsComponents {
             RelicItemStack relic = (RelicItemStack) field.get(null);
 
             for (SlimefunItemStack common : relic.getCommonDrops()) {
-                if (!SlimefunUtils.isItemSimilar(components.getVoidShardEssence(), common, true)) continue;
-                relicsVoidShard.add(relic);
+                if (!SlimefunUtils.isItemSimilar(components.getVoidShardEssence().item(), common.item(), true)) continue;
+                relicsVoidShard.add(relic.item());
             }
 
             for (SlimefunItemStack uncommon : relic.getUncommonDrops()) {
-                if (!SlimefunUtils.isItemSimilar(components.getTemporalCogwheel(), uncommon, true)) continue;
-                relicsTempCog.add(relic);
+                if (!SlimefunUtils.isItemSimilar(components.getTemporalCogwheel().item(), uncommon.item(), true)) continue;
+                relicsTempCog.add(relic.item());
             }
 
-            if (SlimefunUtils.isItemSimilar(components.getNeuralNexusCore(), relic.getRareDrop(), true)) {
-                relicsNeuralNex.add(relic);
+            if (SlimefunUtils.isItemSimilar(components.getNeuralNexusCore().item(), relic.getRareDrop().item(), true)) {
+                relicsNeuralNex.add(relic.item());
             }
         }
 

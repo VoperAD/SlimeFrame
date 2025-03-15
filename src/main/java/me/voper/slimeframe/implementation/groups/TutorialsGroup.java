@@ -84,14 +84,14 @@ public class TutorialsGroup extends FlexItemGroup {
         });
 
         // Relics Tutorial
-        menu.replaceExistingItem(RELICS_TUTORIAL, new CustomItemStack(Material.ENCHANTED_BOOK, Colors.BRONZE + "Relics Tutorial"));
+        menu.replaceExistingItem(RELICS_TUTORIAL, CustomItemStack.create(Material.ENCHANTED_BOOK, Colors.BRONZE + "Relics Tutorial"));
         menu.addMenuClickHandler(RELICS_TUTORIAL, ((player1, i, itemStack, clickAction) -> {
             player1.getInventory().addItem(getRelicsTutorial());
             return false;
         }));
 
         // Generators Tutorial
-        menu.replaceExistingItem(GENERATORS_TUTORIAL, new CustomItemStack(Material.ENCHANTED_BOOK, Colors.BRONZE + "Energy Generators Tutorial"));
+        menu.replaceExistingItem(GENERATORS_TUTORIAL, CustomItemStack.create(Material.ENCHANTED_BOOK, Colors.BRONZE + "Energy Generators Tutorial"));
         menu.addMenuClickHandler(GENERATORS_TUTORIAL, ((player1, i, itemStack, clickAction) -> {
             player1.getInventory().addItem(getGeneratorsTutorial());
             return false;
@@ -99,7 +99,7 @@ public class TutorialsGroup extends FlexItemGroup {
         menu.open(player);
 
         // Special Ores Farm
-        menu.replaceExistingItem(SPECIAL_ORES_TUTORIAL, new CustomItemStack(Material.ENCHANTED_BOOK, Colors.BRONZE + "New Resources Farm Tutorial"));
+        menu.replaceExistingItem(SPECIAL_ORES_TUTORIAL, CustomItemStack.create(Material.ENCHANTED_BOOK, Colors.BRONZE + "New Resources Farm Tutorial"));
         menu.addMenuClickHandler(SPECIAL_ORES_TUTORIAL, ((player1, i, itemStack, clickAction) -> {
             player1.getInventory().addItem(getSpecialOresTutorial());
             return false;
