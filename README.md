@@ -1,3 +1,7 @@
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/VoperAD/SlimeFrame/blob/main/README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/VoperAD/SlimeFrame/blob/main/README.pt-br.md)
+
+
 <div align="center">
   <img src="https://github.com/VoperAD/SlimeFrame/blob/main/images/SFrame-Banner.png" alt="SlimeFrame-Banner_2" width="1280" height="500">
 </div>
@@ -66,14 +70,13 @@ Relics are items used to obtain Prime Components, which are components required 
 - Neo: Obtained every 10000 blocks broken.
 - Axi: Obtained every 750 blocks placed.
 
-Use the command ```/sframe relics``` to check your relic inventory.
-Server owners can configure these numbers in the config.yml file.
+> Server owners can configure these numbers in the config.yml file.
 
 #### How to Open a Relic?
 
 Relics have two attributes shown in their lore: Reactants and Refinement. To open a relic, you must fill it up with 10 reactants. To get reactants, put **ONE** relic in your off hand and kill Endermen until it fills up. Every Enderman killed has a 25% chance to give you a reactant. When it reaches 10 reactants, simply right-click with the relic in your hand, and it will open, giving you a reward.
 
-***Bedrock Players:*** If you are a Bedrock player, you must put the relic in your first slot from the left to the right (_it is experimental and still under testing, so if you have any issues, please make a report_).
+> ***Bedrock Players:*** If you are a Bedrock player, you must put the relic in your first slot from the left to the right (_it is experimental and still under testing, so if you have any issues, please make a report_).
 
 #### Relic Refinements
 
@@ -87,13 +90,13 @@ Relics can be refined to increase the chances of getting rarer rewards. To refin
 ### Cumulative Generators
 
 A new type of energy generator that checks if the blocks beside, above, or below it are also Cumulative Generators. For each Cumulative Generator detected, an amount of energy, indicated by a new attribute in the generator's description called **Bonus Energy**, will be added to the total generated energy.
-**Note:** Diagonal blocks are not counted. This means the cumulative energy generator will check a total of 6 blocks (1 for each side, 1 above, and 1 below).
+> **Note:** Diagonal blocks are not counted. This means the cumulative energy generator will check a total of 6 blocks (1 for each side, 1 above, and 1 below).
 
 ### Auto Trader
 
 A new machine that can automatically trade with villagers. To make it work, you will need a ***Merchant Soul Contract***. Once you have a contract, choose a villager and right-click it with the contract in your hand. It will kill the villager and fill the contract with its trades. After that, put the contract in the Auto Trader and select one of the trades.
 
-**Automating the Farm of the New Ores:** This machine can be used to automatically produce the new ores that you get using the Nosam Pickaxe. Every time a villager gets a new trade, there is a small chance that it offers one of the new addon resources. In that case, use the Merchant Soul Contract again and use the Auto Trader with this new contract.
+> **Automating the Farm of the New Ores:** This machine can be used to automatically produce the new ores that you get using the Nosam Pickaxe. Every time a villager gets a new trade, there is a small chance that it offers one of the new addon resources. In that case, use the Merchant Soul Contract again and use the Auto Trader with this new contract.
 
 ## Credits
 
