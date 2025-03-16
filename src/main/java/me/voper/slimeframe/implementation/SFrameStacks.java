@@ -83,8 +83,7 @@ public final class SFrameStacks {
     public static final RandomItemStacks<RelicItemStack> RANDOM_NEO_RELICS = new RandomItemStacks<>();
     public static final RandomItemStacks<RelicItemStack> RANDOM_AXI_RELICS = new RandomItemStacks<>();
 
-    // ---- Utils and Tools ----
-
+    // <editor-fold defaultstate="collapsed" desc="Utils and Tools">
     public static final SlimefunItemStack NOSAM_PICK = SFrameTheme.sfStackFromTheme(
             "WF_NOSAM_PICK",
             Material.IRON_PICKAXE,
@@ -193,9 +192,9 @@ public final class SFrameStacks {
             "the count of consumers,",
             "generators and capacitors"
     );
+    // </editor-fold>
 
-    // ---- Gear ----
-
+    // <editor-fold defaultstate="collapsed" desc="Gear">
     private static final List<String> CRYOGENIC_SUIT_LORE = new ArrayList<>();
 
     static {
@@ -212,9 +211,9 @@ public final class SFrameStacks {
     public static final SlimefunItemStack CRYO_CHESTPLATE = new SlimefunItemStack("WF_CRYO_CHESTP", Material.LEATHER_CHESTPLATE, Color.BLUE, "&9Cryogenic Chestplate", CRYOGENIC_SUIT_LORE.toArray(new String[0]));
     public static final SlimefunItemStack CRYO_LEGGINGS = new SlimefunItemStack("WF_CRYO_LEGGINGS", Material.LEATHER_LEGGINGS, Color.BLUE, "&9Cryogenic Leggings", CRYOGENIC_SUIT_LORE.toArray(new String[0]));
     public static final SlimefunItemStack CRYO_BOOTS = new SlimefunItemStack("WF_CRYO_BOOTS", Material.LEATHER_BOOTS, Color.BLUE, "&9Cryogenic Boots", CRYOGENIC_SUIT_LORE.toArray(new String[0]));
+    // </editor-fold>
 
-    // ---- Resources ----
-
+    // <editor-fold defaultstate="collapsed" desc="Resources">
     public static final SlimefunItemStack PYROL = SFrameTheme.sfStackFromTheme(
             "WF_PYROL",
             Material.QUARTZ,
@@ -483,9 +482,9 @@ public final class SFrameStacks {
             "Condensed Plate",
             "All the plates condensed in one"
     );
+    // </editor-fold>
 
-    // ---- Alloys ----
-
+    // <editor-fold defaultstate="collapsed" desc="Alloys">
     public static final SlimefunItemStack PYROTIC_ALLOY = SFrameTheme.sfStackFromTheme(
             "WF_PYROTIC_ALLOY",
             Material.IRON_INGOT,
@@ -558,8 +557,9 @@ public final class SFrameStacks {
             "Devolved Namalon",
             "A compound formed from Namalon"
     );
+    // </editor-fold>
 
-    // ---- Machines ----
+    // <editor-fold defaultstate="collapsed" desc="Machines">
     public static final SlimefunItemStack CRYOTIC_EXTRACTOR = SFrameTheme.sfStackFromTheme(
             "WF_CRYO_EXTRACTOR",
             Material.BEACON,
@@ -1123,8 +1123,9 @@ public final class SFrameStacks {
             Lore.powerPerSecond(512),
             Lore.speed(30)
     );
+    // </editor-fold>
 
-    // Energy Generators
+    // <editor-fold defaultstate="collapsed" desc="Energy Generators">
     public static final SlimefunItemStack GRAVITECH_ENERCELL = SFrameTheme.sfStackFromTheme(
             "WF_GRAVITECH_ENERCELL",
             Material.WHITE_GLAZED_TERRACOTTA,
@@ -1256,9 +1257,9 @@ public final class SFrameStacks {
             Lore.powerPerSecond(1_000_000),
             Lore.bonusPower(1_000_000)
     );
+    // </editor-fold>
 
-    // ---- Multiblocks ----
-
+    // <editor-fold defaultstate="collapsed" desc="Multiblocks">
     public static final SlimefunItemStack FOUNDRY = new SlimefunItemStack(
             "WF_FOUNDRY",
             Material.ANVIL,
@@ -1266,9 +1267,9 @@ public final class SFrameStacks {
             "",
             "&fA special foundry used to craft SlimeFrame items"
     );
+    // </editor-fold>
 
-    // ---- Relics ----
-
+    // <editor-fold defaultstate="collapsed" desc="Relics">
     public static final RelicItemStack LITH_A1 = new RelicItemStack(
             "Lith A1",
             Relic.Era.LITH,
@@ -1413,5 +1414,6 @@ public final class SFrameStacks {
             }
         }
     }
+    // </editor-fold>
 
 }
