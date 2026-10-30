@@ -45,20 +45,19 @@ public class AdvancedMobDropListener implements Listener {
 
     private boolean canDrop(Player p, ItemStack item, EntityType entity) {
         SlimefunItem sfItem = SlimefunItem.getByItem(item);
-        if (sfItem == null) return false;
-        if (!sfItem.canUse(p, true)) return false;
+        // Only SlimeFrame's own drops are handled here, and a locked one is withheld silently. This used to call
+        // canUse(p, true) on every registered mob drop, so each kill sent a message per locked drop of that mob
+        // (on top of Slimefun's own MobDropListener).
+        if (!(sfItem instanceof AdvancedMobDrop advancedMobDrop)) return false;
 
-        if (sfItem instanceof AdvancedMobDrop advancedMobDrop) {
+        // Will be handled by the Slimefun RandomMobDrop listener
+        if (advancedMobDrop.getMobDropChance() != 0) return false;
 
-            // Will be handled by the Slimefun RandomMobDrop listener
-            if (advancedMobDrop.getMobDropChance() != 0) return false;
+        if (!sfItem.canUse(p, false)) return false;
 
-            int random = ThreadLocalRandom.current().nextInt(100);
+        int random = ThreadLocalRandom.current().nextInt(100);
 
-            return advancedMobDrop.getMobDropChance(entity) > random;
-        }
-
-        return false;
+        return advancedMobDrop.getMobDropChance(entity) > random;
     }
 
 }
